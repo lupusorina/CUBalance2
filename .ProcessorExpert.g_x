@@ -1,0 +1,66 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="4">
+        <Line>"${ProcessorExpertPath}/lib/Kinetis/iofiles"</Line>
+        <Line>"${ProcessorExpertPath}/lib/Kinetis/pdd/inc"</Line>
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Generated_Code/TU2.h" FileDate="2015-03-20, 17:14:43" FileAge="1426864483730" FileType="45637" CompNumb="24" />
+      <File Name="Generated_Code/TU2.c" FileDate="2015-03-20, 17:14:43" FileAge="1426864483801" FileType="45637" CompNumb="24" />
+      <File Name="Generated_Code/CsIO1.h" FileDate="2015-03-19, 10:13:23" FileAge="1426752803835" FileType="45637" CompNumb="17" />
+      <File Name="Sources/Events.h" FileDate="2015-03-19, 15:47:57" FileAge="1426772877347" FileType="131328" />
+      <File Name="Documentation/doxygen/TU2.txt" FileDate="2015-03-23, 13:22:14" FileAge="1427109734054" FileType="45637" CompNumb="24" />
+      <File Name="Generated_Code/TU1.h" FileDate="2015-03-15, 18:38:51" FileAge="1426437531960" FileType="45637" CompNumb="8" />
+      <File Name="Documentation/doxygen/TimerIntLdd1.txt" FileDate="2015-03-23, 13:22:14" FileAge="1427109734102" FileType="45637" CompNumb="23" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2015-03-15, 17:56:58" FileAge="1426435018167" FileType="45637" />
+      <File Name="Generated_Code/CsIO1.c" FileDate="2015-03-19, 10:13:23" FileAge="1426752803825" FileType="45637" CompNumb="17" />
+      <File Name="Sources/Events.c" FileDate="2015-03-19, 21:17:57" FileAge="1426792677287" FileType="131328" />
+      <File Name="Generated_Code/TU1.c" FileDate="2015-03-15, 18:38:51" FileAge="1426437531963" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/TI1.h" FileDate="2015-03-19, 15:47:56" FileAge="1426772876297" FileType="45637" CompNumb="22" />
+      <File Name="Generated_Code/TI1.c" FileDate="2015-03-19, 15:47:56" FileAge="1426772876257" FileType="45637" CompNumb="22" />
+      <File Name="Documentation/doxygen/IO1.txt" FileDate="2015-03-23, 13:22:14" FileAge="1427109734006" FileType="45637" CompNumb="18" />
+      <File Name="Documentation/doxygen/pex.css" FileDate="2015-03-15, 17:56:57" FileAge="1426435017955" FileType="16384" CompNumb="2" />
+      <File Name="Generated_Code/TimerIntLdd1.h" FileDate="2015-03-20, 17:14:43" FileAge="1426864483705" FileType="45637" CompNumb="23" />
+      <File Name="Generated_Code/TimerIntLdd1.c" FileDate="2015-03-20, 17:14:43" FileAge="1426864483658" FileType="45637" CompNumb="23" />
+      <File Name="Documentation/doxygen/TU1.txt" FileDate="2015-03-15, 18:38:51" FileAge="1426437531967" FileType="45637" CompNumb="8" />
+      <File Name="Documentation/ProcessorExpert_Settings.xml" FileDate="2015-03-23, 13:22:14" FileAge="1427109734748" FileType="3072" />
+      <File Name="Project_Settings/Linker_Files/ProcessorExpert.ld" FileDate="2015-03-15, 17:56:58" FileAge="1426435018132" FileType="8" CompNumb="2" />
+      <File Name="Generated_Code/PWM1.h" FileDate="2015-03-15, 18:38:51" FileAge="1426437531946" FileType="45637" CompNumb="6" />
+      <File Name="Sources/ProcessorExpert.c" FileDate="2015-03-20, 17:11:35" FileAge="1426864295493" FileType="128" />
+      <File Name="Generated_Code/PWM1.c" FileDate="2015-03-15, 18:38:51" FileAge="1426437531941" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/PwmLdd1.h" FileDate="2015-03-15, 18:38:51" FileAge="1426437531952" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/I2C2.h" FileDate="2015-03-23, 13:22:13" FileAge="1427109733624" FileType="45637" CompNumb="16" />
+      <File Name="Documentation/ProcessorExpert.txt" FileDate="2015-03-19, 15:47:58" FileAge="1426772878177" FileType="3072" />
+      <File Name="Generated_Code/GPIO1.h" FileDate="2015-03-15, 18:33:21" FileAge="1426437201839" FileType="45637" CompNumb="10" />
+      <File Name="Generated_Code/PwmLdd1.c" FileDate="2015-03-15, 18:38:51" FileAge="1426437531988" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/I2C2.c" FileDate="2015-03-23, 13:22:13" FileAge="1427109733713" FileType="45637" CompNumb="16" />
+      <File Name="Generated_Code/PE_LDD.h" FileDate="2015-03-19, 15:47:57" FileAge="1426772877304" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/GPIO1.c" FileDate="2015-03-15, 18:33:21" FileAge="1426437201882" FileType="45637" CompNumb="10" />
+      <File Name="Documentation/ProcessorExpert_SIGNALS.txt" FileDate="2015-03-24, 11:28:31" FileAge="1427189311781" FileType="3072" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2015-03-15, 17:56:58" FileAge="1426435018172" FileType="45637" />
+      <File Name="Project_Settings/Debugger/MKL25Z128.mem" FileDate="2015-03-15, 17:56:58" FileAge="1426435018143" FileType="45637" CompNumb="2" />
+      <File Name="Documentation/doxygen/ProcessorExpert.txt" FileDate="2015-03-19, 15:47:57" FileAge="1426772877271" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/PE_LDD.c" FileDate="2015-03-23, 13:22:14" FileAge="1427109734227" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/IO1.h" FileDate="2015-03-19, 10:13:23" FileAge="1426752803905" FileType="45637" CompNumb="18" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2015-03-15, 17:56:58" FileAge="1426435018175" FileType="45637" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2015-03-19, 15:47:56" FileAge="1426772876973" FileType="45637" />
+      <File Name="Documentation/doxygen/RoutingReport.txt" FileDate="2015-03-15, 17:56:58" FileAge="1426435018149" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/IO1.c" FileDate="2015-03-19, 10:13:23" FileAge="1426752803893" FileType="45637" CompNumb="18" />
+      <File Name="Documentation/doxygen/PwmLdd1.txt" FileDate="2015-03-15, 18:38:52" FileAge="1426437532009" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2015-03-15, 17:56:58" FileAge="1426435018159" FileType="45637" CompNumb="2" />
+      <File Name="Documentation/doxygen/GPIO1.txt" FileDate="2015-03-15, 18:33:21" FileAge="1426437201903" FileType="45637" CompNumb="10" />
+      <File Name="Documentation/doxygen/I2C2.txt" FileDate="2015-03-23, 13:22:13" FileAge="1427109733890" FileType="45637" CompNumb="16" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2015-03-23, 13:22:14" FileAge="1427109734269" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2015-03-19, 15:47:57" FileAge="1426772877090" FileType="45637" CompNumb="2" />
+      <File Name="Documentation/doxygen/pex.doxyfile" FileDate="2015-03-15, 17:56:58" FileAge="1426435018146" FileType="45637" CompNumb="2" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>20</CodeGenReference>
+</CodeGenerationInfo>
