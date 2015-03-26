@@ -110,7 +110,7 @@
     </GenFiles>
     <SignalListFile>Documentation\ProcessorExpert_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>20</ProjectModificationStamp>
+    <ProjectModificationStamp>23</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -675,8 +675,8 @@
     <GenComponentVersion>01.014</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1182231238</HeaderAge>
-    <CodeAge>1182231238</CodeAge>
+    <HeaderAge>1182381686</HeaderAge>
+    <CodeAge>1182381686</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>33</GenNumMethods>
     <Init>true</Init>

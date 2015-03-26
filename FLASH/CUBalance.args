@@ -16,7 +16,6 @@
 "./Sources/sa_mtb.o"
 "./Sources/ProcessorExpert.o"
 "./Sources/MPU6050.o"
-"./Sources/MMA8451.o"
 "./Sources/Events.o"
 -mcpu=cortex-m0
 -mthumb

@@ -7,8 +7,10 @@
 
 #ifndef MPU6050_H_
 #define MPU6050_H_
-
-#define MPU6050_ADDRESS 0b11010010 // Address with end write bit
+#include "PE_Types.h"
+#include "PE_LDD.h"
+#define MPU6050_RA_WHO_AM_I 0x75
+//#define MPU6050_ADDRESS 0b0110100 // Address with end write bit
 #define MPU6050_RA_XG_OFFS_TC 0x00 //[7] PWR_MODE, [6:1] XG_OFFS_TC, [0] OTP_BNK_VLD
 #define MPU6050_RA_YG_OFFS_TC 0x01 //[7] PWR_MODE, [6:1] YG_OFFS_TC, [0] OTP_BNK_VLD
 #define MPU6050_RA_ZG_OFFS_TC 0x02 //[7] PWR_MODE, [6:1] ZG_OFFS_TC, [0] OTP_BNK_VLD
@@ -119,5 +121,14 @@
 #define MPU6050_RA_FIFO_COUNTL 0x73
 #define MPU6050_RA_FIFO_R_W 0x74
 #define MPU6050_RA_WHO_AM_I 0x75
+
+typedef struct {
+  volatile bool dataReceivedFlg; /* set to TRUE by the interrupt if we have received data */
+  volatile bool dataTransmittedFlg; /* set to TRUE by the interrupt if we have set data */
+  LDD_TDeviceData *handle; /* pointer to the device handle */
+} MPU6050_TDataState;
+
+
+void MPU6050_Test_I2C(void);
 
 #endif /* MPU6050_H_ */

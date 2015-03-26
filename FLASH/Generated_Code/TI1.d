@@ -53,7 +53,7 @@ Generated_Code/TI1.o: ../Generated_Code/TI1.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
- D:/Licenta/Electronica/CUBalance/Sources/MMA8451.h \
+ D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
@@ -171,7 +171,7 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 
-D:/Licenta/Electronica/CUBalance/Sources/MMA8451.h:
+D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h:
 

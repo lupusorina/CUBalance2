@@ -44,7 +44,7 @@
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU2.h"
-#include "MMA8451.h"
+#include "MPU6050.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 

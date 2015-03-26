@@ -52,7 +52,7 @@ Generated_Code/Vectors.o: ../Generated_Code/Vectors.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TI1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
- D:/Licenta/Electronica/CUBalance/Sources/MMA8451.h \
+ D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Types.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Error.h \
@@ -188,7 +188,7 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 
-D:/Licenta/Electronica/CUBalance/Sources/MMA8451.h:
+D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h:
 

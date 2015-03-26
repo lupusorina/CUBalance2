@@ -30,7 +30,7 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "I2C2.h"
-#include "MMA8451.h"
+#include "MPU6050.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 
@@ -80,7 +80,7 @@ void Cpu_OnNMIINT(void)
 /* ===================================================================*/
 void I2C2_OnMasterBlockSent(LDD_TUserData *UserDataPtr)
 {
-	MMA8451_TDataState *ptr = (MMA8451_TDataState*)UserDataPtr;
+	MPU6050_TDataState *ptr = (MPU6050_TDataState*)UserDataPtr;
 	ptr->dataTransmittedFlg = TRUE;
 }
 
@@ -104,7 +104,9 @@ void I2C2_OnMasterBlockSent(LDD_TUserData *UserDataPtr)
 /* ===================================================================*/
 void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr)
 {
-	 MMA8451_TDataState *ptr = (MMA8451_TDataState*)UserDataPtr;
+	//MPU6050_TDataState data;
+	
+	 MPU6050_TDataState *ptr = (MPU6050_TDataState*)UserDataPtr;
 	 ptr->dataReceivedFlg = TRUE;
 }
 
@@ -125,7 +127,7 @@ void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr)
 void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
-	  MMA8451_Run();
+	MPU6050_Test_I2C();
 }
 
 /* END Events */

@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.014, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-23, 13:21, # CodeGen: 18
+**     Date/Time   : 2015-03-25, 22:51, # CodeGen: 22
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -35,7 +35,7 @@
 **            MASTER mode                                  : Enabled
 **              Initialization                             : 
 **                Address mode                             : 7-bit addressing
-**                Target slave address init                : 1D
+**                Target slave address init                : 68
 **            SLAVE mode                                   : Disabled
 **            Pins                                         : 
 **              SDA pin                                    : 

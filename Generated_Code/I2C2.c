@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.014, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-23, 13:21, # CodeGen: 18
+**     Date/Time   : 2015-03-25, 22:51, # CodeGen: 22
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -35,7 +35,7 @@
 **            MASTER mode                                  : Enabled
 **              Initialization                             : 
 **                Address mode                             : 7-bit addressing
-**                Target slave address init                : 1D
+**                Target slave address init                : 68
 **            SLAVE mode                                   : Disabled
 **            Pins                                         : 
 **              SDA pin                                    : 
@@ -425,7 +425,7 @@ LDD_TError I2C2_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buffe
   } else {
     I2C_PDD_SetMasterMode(I2C1_BASE_PTR, I2C_PDD_MASTER_MODE); /* If no then start signal generated */
   }
-  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0x3AU); /* Send slave address */
+  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0xD0U); /* Send slave address */
   /* {Default RTOS Adapter} Critical section end, general PE function is used */
   ExitCritical();
   return ERR_OK;                       /* OK */
@@ -514,7 +514,7 @@ LDD_TError I2C2_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Bu
   } else {
     I2C_PDD_SetMasterMode(I2C1_BASE_PTR, I2C_PDD_MASTER_MODE); /* If no then start signal generated */
   }
-  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0x3BU); /* Send slave address */
+  I2C_PDD_WriteDataReg(I2C1_BASE_PTR, 0xD1U); /* Send slave address */
   /* {Default RTOS Adapter} Critical section end, general PE function is used */
   ExitCritical();
   return ERR_OK;                       /* OK */

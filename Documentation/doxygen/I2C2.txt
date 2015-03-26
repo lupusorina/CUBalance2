@@ -528,7 +528,7 @@ registers of the peripheral(s) configured by the component.
 **            MASTER mode                                  : Enabled
 **              Initialization                             : 
 **                Address mode                             : 7-bit addressing
-**                Target slave address init                : 1D
+**                Target slave address init                : 68
 **            SLAVE mode                                   : Disabled
 **            Pins                                         : 
 **              SDA pin                                    : 

@@ -1,8 +1,8 @@
-Sources/MMA8451.o: ../Sources/MMA8451.c \
+Sources/MPU6050.o: ../Sources/MPU6050.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
- ../Sources/MMA8451.h \
+ ../Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Types.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ansi_parms.h \
@@ -55,7 +55,7 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
 
-../Sources/MMA8451.h:
+../Sources/MPU6050.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Types.h:
 
