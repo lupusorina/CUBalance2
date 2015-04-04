@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-23, 13:21, # CodeGen: 18
+**     Date/Time   : 2015-03-29, 17:13, # CodeGen: 31
 **     Abstract    :
 **
 **     Settings    :
@@ -29,9 +29,7 @@
 */         
 
   #include "Cpu.h"
-  #include "PWM1.h"
-  #include "PwmLdd1.h"
-  #include "TU1.h"
+  #include "TPM0.h"
   #include "GPIO1.h"
   #include "I2C2.h"
   #include "CsIO1.h"

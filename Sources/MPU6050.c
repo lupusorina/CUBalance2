@@ -7,7 +7,7 @@
 
 #include "MPU6050.h"
 #include "I2C2.h"
- 
+#include "math.h" 
 
 static MPU6050_TDataState deviceData;
  
@@ -46,9 +46,16 @@ uint8_t MPU6050_WriteReg(uint8_t addr, uint8_t val) {
   return ERR_OK;
 }
 
+void MPU6050_Setup(){
+	// setup i2c driver
+	deviceData.handle = I2C2_Init(&deviceData);
+	
+	MPU6050_WriteReg(MPU6050_RA_PWR_MGMT_1, 0x00);
+}
 
-void Setup_MPU6050()
+void MPU6050_Setup1()
 {
+	deviceData.handle = I2C2_Init(&deviceData);
     //Sets sample rate to 8000/1+7 = 1000Hz
 	MPU6050_WriteReg(MPU6050_RA_SMPLRT_DIV, 0x07);
     //Disable FSync, 256Hz DLPF
@@ -170,8 +177,41 @@ void Setup_MPU6050()
     MPU6050_WriteReg(  MPU6050_RA_FIFO_R_W, 0x00);
     //MPU6050_RA_WHO_AM_I             //Read-only, I2C address
  
-    printf("\nMPU6050 Setup Complete");
+    printf("MPU6050 Setup Complete\n");
 }
+
+int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
+	uint8_t acc_low, acc_high;
+	
+	MPU6050_ReadReg(ACC_REG_H, &acc_high, 1);
+	MPU6050_ReadReg(ACC_REG_L, &acc_low,  1);
+	printf(" _________________");
+	//printf("%d ", ((uint16_t)acc_high << 8) | acc_low);
+			
+	return ((uint16_t)acc_high << 8) | acc_low;
+}
+
+
+
+float MPU6050_Read_Angle(){
+	volatile int16_t Acc_X, Acc_Y, Acc_Z;
+	//float ACCEL_XANGLE;
+	float ACCEL_YANGLE;
+	//printf(" _________________\n");
+	Acc_X = MPU6050_Get_Acc(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
+	Acc_Y = MPU6050_Get_Acc(MPU6050_RA_ACCEL_YOUT_H, MPU6050_RA_ACCEL_YOUT_L);
+	Acc_Z = MPU6050_Get_Acc(MPU6050_RA_ACCEL_ZOUT_H, MPU6050_RA_ACCEL_ZOUT_L);
+	
+	
+	//ACCEL_XANGLE = 57.295*atan((float)Acc_Y/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_X,2)));
+	ACCEL_YANGLE = 57.295*atan((float)-Acc_X/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_Y,2)));	
+	//printf(" _________________\n");
+	//printf("x: %d; y: %d; z: %d\n", Acc_X, Acc_Y, Acc_Z);
+	//printf("Angles %d , %d\n", ACCEL_XANGLE,ACCEL_YANGLE);
+	
+	return ACCEL_YANGLE;
+}
+
 
 
 void MPU6050_Test_I2C()
@@ -179,9 +219,9 @@ void MPU6050_Test_I2C()
 	
     unsigned char Data = 0x00;
     uint8_t ACCEL_XOUT_H,ACCEL_XOUT_L,ACCEL_YOUT_H,ACCEL_YOUT_L,ACCEL_ZOUT_H,ACCEL_ZOUT_L;
-    uint16_t ACCEL_XOUT,ACCEL_YOUT,ACCEL_ZOUT;
+    int16_t ACCEL_XOUT, ACCEL_YOUT,ACCEL_ZOUT;
   //  Setup_MPU6050();
-	deviceData.handle = I2C2_Init(&deviceData);
+	
 	MPU6050_ReadReg (MPU6050_RA_WHO_AM_I, &Data, 1);
 	printf("Primit %x\n", Data);
 	
@@ -191,7 +231,7 @@ void MPU6050_Test_I2C()
 	MPU6050_ReadReg(MPU6050_RA_ACCEL_YOUT_L, &ACCEL_YOUT_L, 1);
 	MPU6050_ReadReg(MPU6050_RA_ACCEL_ZOUT_H, &ACCEL_ZOUT_H, 1);
 	MPU6050_ReadReg(MPU6050_RA_ACCEL_ZOUT_L, &ACCEL_ZOUT_L, 1);
-	printf("x = %d ", 	ACCEL_XOUT_H);
+	//printf("x = %d ", 	ACCEL_XOUT_H);
 	
 	ACCEL_XOUT = ((ACCEL_XOUT_H<<8)|ACCEL_XOUT_L);
 	ACCEL_YOUT = ((ACCEL_YOUT_H<<8)|ACCEL_YOUT_L);
@@ -204,5 +244,5 @@ void MPU6050_Test_I2C()
 	
 	
 	
-	I2C2_Deinit(deviceData.handle);  
+	//I2C2_Deinit(deviceData.handle);  
 }

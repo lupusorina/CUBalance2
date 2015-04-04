@@ -28,8 +28,7 @@
 
 \page page_components Components 
 
-- \subpage TU1
-- \subpage PwmLdd1
+- \subpage TPM0
 - \subpage GPIO1
 - \subpage I2C2
 - \subpage IO1

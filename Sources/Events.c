@@ -31,6 +31,7 @@
 #include "Events.h"
 #include "I2C2.h"
 #include "MPU6050.h"
+#include "PID.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 
@@ -127,7 +128,7 @@ void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr)
 void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
-	MPU6050_Test_I2C();
+	stabilize();
 }
 
 /* END Events */

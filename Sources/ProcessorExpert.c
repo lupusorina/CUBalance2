@@ -30,9 +30,6 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
-#include "PWM1.h"
-#include "PwmLdd1.h"
-#include "TU1.h"
 #include "GPIO1.h"
 #include "I2C2.h"
 #include "CsIO1.h"
@@ -40,6 +37,7 @@
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU2.h"
+#include "TPM0.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -58,11 +56,13 @@ int main(void)
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
-
+  MPU6050_Setup();
   /* Write your code here */
-  GPIO1_SetFieldBits(GPIO1_DeviceData, HBridge_Enable, 0); // Enable H-Bridge Port A
+  GPIO1_SetFieldBits(GPIO1_DeviceData, HBridge_Enable, 1); // Enable H-Bridge Port A
   // UART Communication
-  Setup_MPU6050();
+ //PWM1_SetRatio16(5000);
+ //PWM1_SetRatio16(10000);
+ //PWM1_SetRatio16(15000);
   printf("Starting measurements \n");
   
   //MPU6050_Test_I2C();

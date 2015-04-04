@@ -34,9 +34,6 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
-#include "PWM1.h"
-#include "PwmLdd1.h"
-#include "TU1.h"
 #include "GPIO1.h"
 #include "I2C2.h"
 #include "CsIO1.h"
@@ -44,6 +41,7 @@
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU2.h"
+#include "TPM0.h"
 #include "MPU6050.h"
 #ifdef __cplusplus
 extern "C" {

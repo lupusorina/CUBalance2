@@ -1,61 +1,62 @@
 /*!
-\page PwmLdd1 PwmLdd1 (PWM_LDD)
-**          This component implements a pulse-width modulation generator
-**          that generates signal with variable duty and fixed cycle.
-**          This PWM component provides a high level API for unified
-**          hardware access to various timer devices using the TimerUnit
-**          component.
+\page TPM0 TPM0 (Init_TPM)
+**          This file implements the TPM (TPM0) module initialization
+**          according to the Peripheral Initialization settings, and
+**          defines interrupt service routines prototypes.
 
-- \subpage PwmLdd1_settings
-- \subpage PwmLdd1_regs_overview  
-- \subpage PwmLdd1_regs_details
-- \ref PwmLdd1_module "Component documentation" 
+- \subpage TPM0_settings
+- \subpage TPM0_regs_overview  
+- \subpage TPM0_regs_details
+- \ref TPM0_module "Component documentation" 
 
-\page PwmLdd1_regs_overview Registers Initialization Overview
+\page TPM0_regs_overview Registers Initialization Overview
 This page initialization values for the registers of the peripheral(s) configured
 by the component. 
 <table>
-<tr><td colspan="4" class="ttitle1">PwmLdd1 Initialization</td></tr>
+<tr><td colspan="4" class="ttitle1">TPM0 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x4004803C</td><td>SIM_SCGC6</td><td>
     0x01000000
- </td><td>SIM_SCGC6 register, peripheral PwmLdd1.</td></tr>
+ </td><td>SIM_SCGC6 register, peripheral TPM0.</td></tr>
 <tr><td>0x40038000</td><td>TPM0_SC</td><td>
-    0x00000009
- </td><td>TPM0_SC register, peripheral PwmLdd1.</td></tr>
-<tr><td>0x40038004</td><td>TPM0_CNT</td><td>
-    0x00000000
- </td><td>TPM0_CNT register, peripheral PwmLdd1.</td></tr>
+    0x00000008
+ </td><td>TPM0_SC register, peripheral TPM0.</td></tr>
 <tr><td>0x4003800C</td><td>TPM0_C0SC</td><td>
-    0x00000000
- </td><td>TPM0_C0SC register, peripheral PwmLdd1.</td></tr>
+    0x00000080
+ </td><td>TPM0_C0SC register, peripheral TPM0.</td></tr>
 <tr><td>0x40038014</td><td>TPM0_C1SC</td><td>
-    0x00000000
- </td><td>TPM0_C1SC register, peripheral PwmLdd1.</td></tr>
+    0x00000080
+ </td><td>TPM0_C1SC register, peripheral TPM0.</td></tr>
 <tr><td>0x4003801C</td><td>TPM0_C2SC</td><td>
-    0x0000002C
- </td><td>TPM0_C2SC register, peripheral PwmLdd1.</td></tr>
+    0x000000A8
+ </td><td>TPM0_C2SC register, peripheral TPM0.</td></tr>
 <tr><td>0x40038024</td><td>TPM0_C3SC</td><td>
-    0x00000000
- </td><td>TPM0_C3SC register, peripheral PwmLdd1.</td></tr>
+    0x000000A8
+ </td><td>TPM0_C3SC register, peripheral TPM0.</td></tr>
 <tr><td>0x4003802C</td><td>TPM0_C4SC</td><td>
-    0x00000000
- </td><td>TPM0_C4SC register, peripheral PwmLdd1.</td></tr>
+    0x00000080
+ </td><td>TPM0_C4SC register, peripheral TPM0.</td></tr>
 <tr><td>0x40038034</td><td>TPM0_C5SC</td><td>
+    0x00000080
+ </td><td>TPM0_C5SC register, peripheral TPM0.</td></tr>
+<tr><td>0x40038084</td><td>TPM0_CONF</td><td>
     0x00000000
- </td><td>TPM0_C5SC register, peripheral PwmLdd1.</td></tr>
+ </td><td>TPM0_CONF register, peripheral TPM0.</td></tr>
+<tr><td>0x40038020</td><td>TPM0_C2V</td><td>
+    0x00000000
+ </td><td>TPM0_C2V register, peripheral TPM0.</td></tr>
+<tr><td>0x40038028</td><td>TPM0_C3V</td><td>
+    0x00000000
+ </td><td>TPM0_C3V register, peripheral TPM0.</td></tr>
 <tr><td>0x40038008</td><td>TPM0_MOD</td><td>
     0x0000FFFF
- </td><td>TPM0_MOD register, peripheral PwmLdd1.</td></tr>
-<tr><td>0x40038020</td><td>TPM0_C2V</td><td>
-    0x0000A3D7
- </td><td>TPM0_C2V register, peripheral PwmLdd1.</td></tr>
-<tr><td>0x4004B00C</td><td>PORTC_PCR3</td><td>
-    0x00000400
- </td><td>PORTC_PCR3 register, peripheral PwmLdd1.</td></tr>
+ </td><td>TPM0_MOD register, peripheral TPM0.</td></tr>
+<tr><td>0x40038004</td><td>TPM0_CNT</td><td>
+    0x00000000
+ </td><td>TPM0_CNT register, peripheral TPM0.</td></tr>
 </table>
 <br/>
-\page PwmLdd1_regs_details Register Initialization Details
+\page TPM0_regs_details Register Initialization Details
 This page contains detailed description of initialization values for the 
 registers of the peripheral(s) configured by the component. 
 
@@ -165,7 +166,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000009</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000008</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>8</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
@@ -174,53 +175,6 @@ registers of the peripheral(s) configured by the component.
 <tr><td>5</td><td>CPWMS</td><td>0x00</td><td>Center-aligned PWM Select</td>
 <tr><td>3 - 4</td><td>CMOD</td><td>0x00</td><td>Clock Mode Selection</td>
 <tr><td>0 - 2</td><td>PS</td><td>0x00</td><td>Prescale Factor Selection</td>
-</tr></table>
-<div class="reghdr1">TPM0_CNT</div>
-<div class="regdiag">
-<table class="regtbl">
-<tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
-</tr>
-<tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td>
-</tr>
-<tr>
-<td class="trd1c">W</td>
-</tr>
-<tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-</tr>
-</table>
-<table class="regtbl">
-<tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
-</tr>
-<tr>
-<td class="trd1c">R</td><td colspan="16" rowspan="2">COUNT</td>
-</tr>
-<tr>
-<td class="trd1c">W</td>
-</tr>
-<tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-</tr>
-</table>
-        
-</div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038004</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
-<tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>COUNT</td><td>0x00</td><td>Counter value</td>
 </tr></table>
 <div class="reghdr1">TPM0_C0SC</div>
 <div class="regdiag">
@@ -269,10 +223,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4003800C</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000080</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>7</td><td>CHF</td><td>0x00</td><td>Channel Flag</td>
+<tr><td>7</td><td>CHF</td><td>0x01</td><td>Channel Flag</td>
 <tr><td>6</td><td>CHIE</td><td>0x00</td><td>Channel Interrupt Enable</td>
 <tr><td>5</td><td>MSB</td><td>0x00</td><td>Channel Mode Select</td>
 <tr><td>4</td><td>MSA</td><td>0x00</td><td>Channel Mode Select</td>
@@ -327,10 +281,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038014</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000080</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>7</td><td>CHF</td><td>0x00</td><td>Channel Flag</td>
+<tr><td>7</td><td>CHF</td><td>0x01</td><td>Channel Flag</td>
 <tr><td>6</td><td>CHIE</td><td>0x00</td><td>Channel Interrupt Enable</td>
 <tr><td>5</td><td>MSB</td><td>0x00</td><td>Channel Mode Select</td>
 <tr><td>4</td><td>MSA</td><td>0x00</td><td>Channel Mode Select</td>
@@ -385,15 +339,15 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4003801C</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000002C</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x000000A8</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>7</td><td>CHF</td><td>0x00</td><td>Channel Flag</td>
+<tr><td>7</td><td>CHF</td><td>0x01</td><td>Channel Flag</td>
 <tr><td>6</td><td>CHIE</td><td>0x00</td><td>Channel Interrupt Enable</td>
 <tr><td>5</td><td>MSB</td><td>0x01</td><td>Channel Mode Select</td>
 <tr><td>4</td><td>MSA</td><td>0x00</td><td>Channel Mode Select</td>
 <tr><td>3</td><td>ELSB</td><td>0x01</td><td>Edge or Level Select</td>
-<tr><td>2</td><td>ELSA</td><td>0x01</td><td>Edge or Level Select</td>
+<tr><td>2</td><td>ELSA</td><td>0x00</td><td>Edge or Level Select</td>
 <tr><td>0</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
 </tr></table>
 <div class="reghdr1">TPM0_C3SC</div>
@@ -443,14 +397,14 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038024</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x000000A8</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>7</td><td>CHF</td><td>0x00</td><td>Channel Flag</td>
+<tr><td>7</td><td>CHF</td><td>0x01</td><td>Channel Flag</td>
 <tr><td>6</td><td>CHIE</td><td>0x00</td><td>Channel Interrupt Enable</td>
-<tr><td>5</td><td>MSB</td><td>0x00</td><td>Channel Mode Select</td>
+<tr><td>5</td><td>MSB</td><td>0x01</td><td>Channel Mode Select</td>
 <tr><td>4</td><td>MSA</td><td>0x00</td><td>Channel Mode Select</td>
-<tr><td>3</td><td>ELSB</td><td>0x00</td><td>Edge or Level Select</td>
+<tr><td>3</td><td>ELSB</td><td>0x01</td><td>Edge or Level Select</td>
 <tr><td>2</td><td>ELSA</td><td>0x00</td><td>Edge or Level Select</td>
 <tr><td>0</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
 </tr></table>
@@ -501,10 +455,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4003802C</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000080</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>7</td><td>CHF</td><td>0x00</td><td>Channel Flag</td>
+<tr><td>7</td><td>CHF</td><td>0x01</td><td>Channel Flag</td>
 <tr><td>6</td><td>CHIE</td><td>0x00</td><td>Channel Interrupt Enable</td>
 <tr><td>5</td><td>MSB</td><td>0x00</td><td>Channel Mode Select</td>
 <tr><td>4</td><td>MSA</td><td>0x00</td><td>Channel Mode Select</td>
@@ -559,16 +513,166 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038034</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000080</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>7</td><td>CHF</td><td>0x00</td><td>Channel Flag</td>
+<tr><td>7</td><td>CHF</td><td>0x01</td><td>Channel Flag</td>
 <tr><td>6</td><td>CHIE</td><td>0x00</td><td>Channel Interrupt Enable</td>
 <tr><td>5</td><td>MSB</td><td>0x00</td><td>Channel Mode Select</td>
 <tr><td>4</td><td>MSA</td><td>0x00</td><td>Channel Mode Select</td>
 <tr><td>3</td><td>ELSB</td><td>0x00</td><td>Edge or Level Select</td>
 <tr><td>2</td><td>ELSA</td><td>0x00</td><td>Edge or Level Select</td>
 <tr><td>0</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
+</tr></table>
+<div class="reghdr1">TPM0_CONF</div>
+<div class="regdiag">
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
+<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="4" rowspan="2">TRGSEL</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">CROT</td><td colspan="1" rowspan="2">CSOO</td>
+<td colspan="1" rowspan="2">CSOT</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
+<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">GTBEEN</td><td colspan="1" rowspan="2">-</td><td colspan="2" rowspan="2">DBGMODE</td>
+<td colspan="1" rowspan="2">DOZEEN</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+        
+</div>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038084</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
+<tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
+<tr><td>24 - 27</td><td>TRGSEL</td><td>0x00</td><td>Trigger Select</td>
+<tr><td>18</td><td>CROT</td><td>0x00</td><td>Counter Reload On Trigger</td>
+<tr><td>17</td><td>CSOO</td><td>0x00</td><td>Counter Stop On Overflow</td>
+<tr><td>16</td><td>CSOT</td><td>0x00</td><td>Counter Start on Trigger</td>
+<tr><td>9</td><td>GTBEEN</td><td>0x00</td><td>Global time base enable</td>
+<tr><td>6 - 7</td><td>DBGMODE</td><td>0x00</td><td>Debug Mode</td>
+<tr><td>5</td><td>DOZEEN</td><td>0x00</td><td>Doze Enable</td>
+</tr></table>
+<div class="reghdr1">TPM0_C2V</div>
+<div class="regdiag">
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
+<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
+<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="16" rowspan="2">VAL</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+        
+</div>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038020</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
+<tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
+<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
+</tr></table>
+<div class="reghdr1">TPM0_C3V</div>
+<div class="regdiag">
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
+<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
+<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="16" rowspan="2">VAL</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+        
+</div>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038028</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
+<tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
+<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
 </tr></table>
 <div class="reghdr1">TPM0_MOD</div>
 <div class="regdiag">
@@ -617,7 +721,7 @@ registers of the peripheral(s) configured by the component.
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 15</td><td>MOD</td><td>0x8000</td><td>Modulo value</td>
 </tr></table>
-<div class="reghdr1">TPM0_C2V</div>
+<div class="reghdr1">TPM0_CNT</div>
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
@@ -646,7 +750,7 @@ registers of the peripheral(s) configured by the component.
 <td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="16" rowspan="2">VAL</td>
+<td class="trd1c">R</td><td colspan="16" rowspan="2">COUNT</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
@@ -658,98 +762,70 @@ registers of the peripheral(s) configured by the component.
 </table>
         
 </div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038020</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000A3D7</td></tr>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038004</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>VAL</td><td>0x8000</td><td>Channel Value</td>
-</tr></table>
-<div class="reghdr1">PORTC_PCR3</div>
-<div class="regdiag">
-<table class="regtbl">
-<tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
-</tr>
-<tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">ISF</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="4" rowspan="2">IRQC</td>
-</tr>
-<tr>
-<td class="trd1c">W</td>
-</tr>
-<tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-</tr>
-</table>
-<table class="regtbl">
-<tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
-</tr>
-<tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="3" rowspan="2">MUX</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">DSE</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">PFE</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">SRE</td>
-<td colspan="1" rowspan="2">PE</td><td colspan="1" rowspan="2">PS</td>
-</tr>
-<tr>
-<td class="trd1c">W</td>
-</tr>
-<tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-</tr>
-</table>
-        
-</div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004B00C</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000400</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
-<tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>24</td><td>ISF</td><td>0x00</td><td>Interrupt Status Flag</td>
-<tr><td>16 - 19</td><td>IRQC</td><td>0x00</td><td>Interrupt Configuration</td>
-<tr><td>8 - 10</td><td>MUX</td><td>0x04</td><td>Pin Mux Control</td>
-<tr><td>6</td><td>DSE</td><td>0x00</td><td>Drive Strength Enable</td>
-<tr><td>4</td><td>PFE</td><td>0x00</td><td>Passive Filter Enable</td>
-<tr><td>2</td><td>SRE</td><td>0x00</td><td>Slew Rate Enable</td>
-<tr><td>1</td><td>PE</td><td>0x00</td><td>Pull Enable</td>
-<tr><td>0</td><td>PS</td><td>0x00</td><td>Pull Select</td>
+<tr><td>0 - 15</td><td>COUNT</td><td>0x00</td><td>Counter value</td>
 </tr></table>
 */
 /*!
-\page PwmLdd1_settings Component Settings
+\page TPM0_settings Component Settings
 \code
-**          Component name                                 : PwmLdd1
-**          Period device                                  : TPM0_MOD
-**          Duty device                                    : TPM0_C2V
-**          Output pin                                     : PTC3/LLWU_P7/UART1_RX/TPM0_CH2/CLKOUTa
-**          Output pin signal                              : 
-**          Counter                                        : TPM0_CNT
-**          Interrupt service/event                        : Disabled
-**          Period                                         : 5 ms
-**          Starting pulse width                           : 4 ms
-**          Initial polarity                               : low
+**          Component name                                 : TPM0
+**          Device                                         : TPM0
+**          Settings                                       : 
+**            Clock gate                                   : Enabled
+**            Clock settings                               : 
+**              Clock source                               : TPM counter clock
+**              Prescaler                                  : divide by 1
+**              Modulo counter                             : 10000
+**              Period                                     : 416.708 us
+**            BDM mode                                     : TPM counter stopped; output pins remain the same
+**            Global time base                             : Disabled
+**            Counter reload on trigger                    : Disabled
+**            Counter start on trigger                     : Disabled
+**            Counter stop on overflow                     : Disabled
+**          Channels                                       : 
+**            Channel 0                                    : Disabled
+**            Channel 1                                    : Disabled
+**            Channel 2                                    : Enabled
+**              Channel mode                               : Edge-aligned PWM
+**                PWM polarity                             : High-true
+**                Channel value register                   : 0
+**              Pin                                        : Enabled
+**                Pin                                      : PTC3/LLWU_P7/UART1_RX/TPM0_CH2/CLKOUTa
+**                Pin signal                               : 
+**              Interrupt/DMA                              : 
+**                Interrupt                                : INT_TPM0
+**                Channel interrupt                        : Disabled
+**                DMA request                              : Disabled
+**            Channel 3                                    : Enabled
+**              Channel mode                               : Edge-aligned PWM
+**                PWM polarity                             : High-true
+**                Channel value register                   : 0
+**              Pin                                        : Enabled
+**                Pin                                      : PTC4/LLWU_P8/SPI0_PCS0/UART1_TX/TPM0_CH3
+**                Pin signal                               : 
+**              Interrupt/DMA                              : 
+**                Interrupt                                : INT_TPM0
+**                Channel interrupt                        : Disabled
+**                DMA request                              : Disabled
+**            Channel 4                                    : Disabled
+**            Channel 5                                    : Disabled
+**          Pins                                           : 
+**            External clock pin                           : Disabled
+**            HW Synchronization trigger                   : Disabled
+**          Interrupts                                     : 
+**            Channels / Timer overflow / Fault            : 
+**              Interrupt                                  : INT_TPM0
+**              Interrupt request                          : Disabled
+**              Interrupt priority                         : 0 (Highest)
+**              ISR Name                                   : 
+**              Channels interrupt/DMA                     : See the respective Channel settings
+**              Timer overflow DMA                         : Disabled
+**              Timer overflow interrupt                   : Disabled
 **          Initialization                                 : 
-**            Enabled in init. code                        : yes
-**            Auto initialization                          : yes
-**            Event mask                                   : 
-**              OnEnd                                      : Disabled
-**          CPU clock/configuration selection              : 
-**            Clock configuration 0                        : This component enabled
-**            Clock configuration 1                        : This component disabled
-**            Clock configuration 2                        : This component disabled
-**            Clock configuration 3                        : This component disabled
-**            Clock configuration 4                        : This component disabled
-**            Clock configuration 5                        : This component disabled
-**            Clock configuration 6                        : This component disabled
-**            Clock configuration 7                        : This component disabled
-**          Referenced components                          : 
-**            Linked component                             : TU1
+**            Call Init method                             : yes
 \endcode
 */

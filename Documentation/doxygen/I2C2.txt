@@ -59,7 +59,7 @@ by the component.
     0x00000008
  </td><td>I2C1_SMB register, peripheral I2C2.</td></tr>
 <tr><td>0x40067001</td><td>I2C1_F</td><td>
-    0x00000000
+    0x0000002B
  </td><td>I2C1_F register, peripheral I2C2.</td></tr>
 </table>
 <br/>
@@ -508,11 +508,11 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40067001</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000002B</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>6 - 7</td><td>MULT</td><td>0x00</td><td>The MULT bits define the multiplier factor mul. This factor is used along with the SCL divider to generate the I2C baud rate</td>
-<tr><td>0 - 5</td><td>ICR</td><td>0x00</td><td>ClockRate</td>
+<tr><td>0 - 5</td><td>ICR</td><td>0x20</td><td>ClockRate</td>
 </tr></table>
 */
 /*!
@@ -539,13 +539,13 @@ registers of the peripheral(s) configured by the component.
 **                SCL pin signal                           : 
 **              High drive select                          : Disabled
 **              Input Glitch filter                        : 0
-**            Internal frequency (multiplier factor)       : 20.97152 MHz
-**            Bits 0-2 of Frequency divider register       : 000
-**            Bits 3-5 of Frequency divider register       : 000
-**            SCL frequency                                : 1048.576 kHz
-**            SDA Hold                                     : 0.334 us
-**            SCL start Hold                               : 0.286 us
-**            SCL stop Hold                                : 0.525 us
+**            Internal frequency (multiplier factor)       : 24 MHz
+**            Bits 0-2 of Frequency divider register       : 011
+**            Bits 3-5 of Frequency divider register       : 101
+**            SCL frequency                                : 46.875 kHz
+**            SDA Hold                                     : 2.708 us
+**            SCL start Hold                               : 10.583 us
+**            SCL stop Hold                                : 10.708 us
 **            Control acknowledge bit                      : Disabled
 **            Low timeout                                  : Disabled
 **          Initialization                                 : 

@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-19, 15:47, # CodeGen: 13
+**     Date/Time   : 2015-03-29, 17:13, # CodeGen: 31
 **     Abstract    :
 **
 **     Settings    :
@@ -35,9 +35,7 @@
 /* MODULE Cpu. */
 
 /* {Default RTOS Adapter} No RTOS includes */
-#include "PWM1.h"
-#include "PwmLdd1.h"
-#include "TU1.h"
+#include "TPM0.h"
 #include "GPIO1.h"
 #include "I2C2.h"
 #include "CsIO1.h"
@@ -113,10 +111,10 @@ void __init_hardware(void)
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   /* SIM_SCGC5: LPTMR=1 */
   SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK;                                   
-  /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
-  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x00)); /* Update system prescalers */
-  /* SIM_SOPT2: PLLFLLSEL=0 */
-  SIM_SOPT2 &= (uint32_t)~(uint32_t)(SIM_SOPT2_PLLFLLSEL_MASK); /* Select FLL as a clock source for various peripherals */
+  /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescalers */
+  /* SIM_SOPT2: PLLFLLSEL=1 */
+  SIM_SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK; /* Select PLL as a clock source for various peripherals */
   /* SIM_SOPT1: OSC32KSEL=3 */
   SIM_SOPT1 |= SIM_SOPT1_OSC32KSEL(0x03); /* LPO 1kHz oscillator drives 32 kHz clock for various peripherals */
   /* SIM_SOPT2: TPMSRC=1 */
@@ -125,25 +123,38 @@ void __init_hardware(void)
               )) | (uint32_t)(
                SIM_SOPT2_TPMSRC(0x01)
               ));                      /* Set the TPM clock */
-  /* Switch to FEI Mode */
-  /* MCG_C1: CLKS=0,FRDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
-  MCG_C1 = MCG_C1_CLKS(0x00) |
-           MCG_C1_FRDIV(0x00) |
-           MCG_C1_IREFS_MASK |
-           MCG_C1_IRCLKEN_MASK;       
-  /* MCG_C2: LOCRE0=0,??=0,RANGE0=0,HGO0=0,EREFS0=0,LP=0,IRCS=0 */
-  MCG_C2 = MCG_C2_RANGE0(0x00);                                   
-  /* MCG_C4: DMX32=0,DRST_DRS=0 */
-  MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));                                   
+  /* PORTA_PCR18: ISF=0,MUX=0 */
+  PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
+  /* PORTA_PCR19: ISF=0,MUX=0 */
+  PORTA_PCR19 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
+  /* Switch to FBE Mode */
+  /* MCG_C2: LOCRE0=0,??=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
+  MCG_C2 = (MCG_C2_RANGE0(0x02) | MCG_C2_EREFS0_MASK);                                   
   /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
   OSC0_CR = OSC_CR_ERCLKEN_MASK;                                   
-  /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=0 */
-  MCG_C5 = MCG_C5_PRDIV0(0x00);                                   
+  /* MCG_C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);                                   
+  /* MCG_C4: DMX32=0,DRST_DRS=0 */
+  MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));                                   
+  /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
+  MCG_C5 = MCG_C5_PRDIV0(0x03);                                   
   /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
   MCG_C6 = MCG_C6_VDIV0(0x00);                                   
-  while((MCG_S & MCG_S_IREFST_MASK) == 0x00U) { /* Check that the source of the FLL reference clock is the internal reference clock. */
+  while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock is the external reference clock. */
   }
-  while((MCG_S & 0x0CU) != 0x00U) {    /* Wait until output of the FLL is selected */
+  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
+  }
+  /* Switch to PBE Mode */
+  /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
+  MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));                                   
+  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
+  }
+  while((MCG_S & MCG_S_LOCK0_MASK) == 0x00U) { /* Wait until locked */
+  }
+  /* Switch to PEE Mode */
+  /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);                                   
+  while((MCG_S & 0x0CU) != 0x0CU) {    /* Wait until output of the PLL is selected */
   }
   /*** End of PE initialization code after reset ***/
 
@@ -210,6 +221,22 @@ void PE_low_level_init(void)
   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
   /* Common initialization of the CPU registers */
+  /* PORTC_PCR3: ISF=0,MUX=4 */
+  PORTC_PCR3 = (uint32_t)((PORTC_PCR3 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x03)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x04)
+               ));                                  
+  /* PORTC_PCR4: ISF=0,MUX=4 */
+  PORTC_PCR4 = (uint32_t)((PORTC_PCR4 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x03)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x04)
+               ));                                  
+  /* NVIC_IPR4: PRI_17=0 */
+  NVIC_IPR4 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_17(0xFF));                                   
   /* PORTA_PCR20: ISF=0,MUX=7 */
   PORTA_PCR20 = (uint32_t)((PORTA_PCR20 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK
@@ -218,8 +245,8 @@ void PE_low_level_init(void)
                 ));                                  
   /* NVIC_IPR1: PRI_6=0 */
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));                                   
-  /* ### PWM_LDD "PwmLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)PwmLdd1_Init(NULL);
+  /* ### Init_TPM "TPM0" init code ... */
+  TPM0_Init();
   /* ### GPIO_LDD "GPIO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)GPIO1_Init(NULL);
   /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */

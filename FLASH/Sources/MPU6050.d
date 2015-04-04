@@ -16,15 +16,12 @@ Sources/MPU6050.o: ../Sources/MPU6050.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Types.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Error.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Const.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/IO_Map.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/PwmLdd1.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/TU1.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/Cpu.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/CsIO1.h \
@@ -47,7 +44,18 @@ Sources/MPU6050.o: ../Sources/MPU6050.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h
+ D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cmath \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cfloat \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_t.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/float.ARM.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math_api.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_misra_types.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math_inlines.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math_config.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/math.ARM.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cerrno
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -83,23 +91,17 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Error.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Const.h:
 
-D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h:
+D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/IO_Map.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/PwmLdd1.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/TU1.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/Cpu.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h:
 
@@ -146,3 +148,25 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cmath:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cfloat:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_t.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/float.ARM.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math_api.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_misra_types.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math_inlines.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math_config.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/math.ARM.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cerrno:

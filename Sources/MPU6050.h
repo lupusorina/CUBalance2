@@ -120,9 +120,8 @@
 #define MPU6050_RA_FIFO_COUNTH 0x72
 #define MPU6050_RA_FIFO_COUNTL 0x73
 #define MPU6050_RA_FIFO_R_W 0x74
-#define MPU6050_RA_WHO_AM_I 0x75
 
-typedef struct {
+typedef struct {								
   volatile bool dataReceivedFlg; /* set to TRUE by the interrupt if we have received data */
   volatile bool dataTransmittedFlg; /* set to TRUE by the interrupt if we have set data */
   LDD_TDeviceData *handle; /* pointer to the device handle */
@@ -130,5 +129,8 @@ typedef struct {
 
 
 void MPU6050_Test_I2C(void);
+
+void MPU6050_Setup();
+float MPU6050_Read_Angle();
 
 #endif /* MPU6050_H_ */

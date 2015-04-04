@@ -20,17 +20,11 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Error.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Const.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/IO_Map.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/PwmLdd1.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/TU1.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/Cpu.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/PwmLdd1.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/TU1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/Cpu.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/CsIO1.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
@@ -54,9 +48,10 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  ../Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/CsIO1.h \
@@ -105,27 +100,15 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Const.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/IO_Map.h:
 
-D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/PwmLdd1.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/TU1.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/Cpu.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/PwmLdd1.h:
-
-D:/Licenta/Electronica/CUBalance/Generated_Code/TU1.h:
-
 D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
 
+C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h:
+
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/Cpu.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h:
 
@@ -173,11 +156,13 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 
+D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
+
 ../Sources/MPU6050.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h:
 
-D:/Licenta/Electronica/CUBalance/Generated_Code/PWM1.h:
+D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h:
 
