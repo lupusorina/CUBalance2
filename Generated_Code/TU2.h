@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.156, Driver 01.10, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-28, 10:12, # CodeGen: 59
+**     Date/Time   : 2015-05-28, 13:56, # CodeGen: 63
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -21,7 +21,7 @@
 **            Counter frequency                            : Auto select
 **          Counter restart                                : On-match
 **            Period device                                : LPTMR0_CMR
-**            Period                                       : 0.3 sec
+**            Period                                       : 100 Hz
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_LPTimer
 **              Interrupt priority                         : minimal priority
@@ -93,10 +93,10 @@ extern "C" {
 #define __BWUserType_TU2_TValueType
   typedef uint16_t TU2_TValueType ;    /* Type for data parameters of methods */
 #endif
-#define TU2_CNT_INP_FREQ_U_0 0x0001E848UL /* Counter input frequency in Hz */
-#define TU2_CNT_INP_FREQ_R_0 125000.0F /* Counter input frequency in Hz */
+#define TU2_CNT_INP_FREQ_U_0 0x003D0900UL /* Counter input frequency in Hz */
+#define TU2_CNT_INP_FREQ_R_0 4000000.0F /* Counter input frequency in Hz */
 #define TU2_CNT_INP_FREQ_COUNT 0U      /* Count of predefined counter input frequencies */
-#define TU2_PERIOD_TICKS   0x927CUL    /* Initialization value of period in 'counter ticks' */
+#define TU2_PERIOD_TICKS   0x9C40UL    /* Initialization value of period in 'counter ticks' */
 #define TU2_NUMBER_OF_CHANNELS 0x00U   /* Count of predefined channels */
 #define TU2_COUNTER_WIDTH  0x10U       /* Counter width in bits  */
 #define TU2_COUNTER_DIR    DIR_UP      /* Direction of counting */

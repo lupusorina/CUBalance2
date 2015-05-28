@@ -32,11 +32,11 @@
 #include "Events.h"
 #include "GPIO1.h"
 #include "I2C2.h"
-#include "CsIO1.h"
-#include "IO1.h"
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU2.h"
+#include "FMSTR1.h"
+#include "UART0.h"
 #include "TPM0.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
@@ -49,6 +49,7 @@
 float gui_acc_x = 0;
 float gui_acc_y = 0;
 float gui_acc_z = 0;
+float gui_total_acc = 0;
 float gui_angle = 0;
 
 //int16_t Acc_X = 0;
@@ -73,7 +74,7 @@ int main(void)
  //PWM1_SetRatio16(5000);
  //PWM1_SetRatio16(10000);
  //PWM1_SetRatio16(15000);
-  printf("Starting measurements \n");
+  //printf("Starting measurements \n");
   
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/

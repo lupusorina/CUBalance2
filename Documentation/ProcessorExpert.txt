@@ -43,8 +43,6 @@ Module "I2C2"      (component I2C_LDD)
                 the buffer should not be changed until the transmission is complete. Event "OnMasterBlockReceived"can be used 
                 to detect the end of the reception. This method is available only for the MASTER or MASTER - SLAVE mode.
 
-Module "CsIO1"     (component ConsoleIO)
-
 Module "TI1"       (component TimerInt)
 
 Module "TU2"       (component TimerUnit_LDD)
@@ -53,6 +51,29 @@ Module "TU2"       (component TimerUnit_LDD)
                 "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
                 <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
                 second call of Init the <Deinit> must be called first.
+
+Module "FMSTR1"    (component FreeMaster)
+   - FMSTR1_Poll -In the poll-driven or short interrupt modes, this function handles the protocol decoding and execution. In 
+                the poll-driven mode, this function also handles the SCI communication. In the long interrupt mode, this 
+                function compiles as an empty function and may still be called.
+   - FMSTR1_Recorder -Recorder worker routine. This returns quickly if recorder is not running, otherwise it calls quite 
+                lengthy recorder routine which does all the recorder work (sampling, triggering).   This method is enabled only 
+                if the Recorder property is enabled.
+   - FMSTR1_TriggerRec -Pull the trigger of the recorder. This function starts the post-trigger stop countdown.  This method is 
+                enabled only if the Recorder property is enabled.
+   - FMSTR1_GetAppCmd -Fetch the application command code if one is ready for processing.   This method is enabled only if the 
+                Application command property is enabled.
+   - FMSTR1_GetAppCmdData -Get a pointer to application command data. This function can be used to retrieve the Application 
+                Command data, once the application determines the Application Command is pending.  This method is enabled only 
+                if the Application command property is enabled.
+   - FMSTR1_RegisterAppCmdCall -Register or unregister application command callback handler.   This method is enabled only if 
+                the Application command property is enabled.
+   - FMSTR1_AppCmdAck -This function is used when Application Command processing is finished in the application. The 
+                nResultCode passed to this function is returned back to the host and the driver is re-initialized to expect the 
+                next Application Command.   This method is enabled only if the Application command property is enabled.
+   - FMSTR1_AppCmdSetResponseData -This function can be used before the Application Command processing is finished, when there 
+                are any data to be returned back to the PC.  This method is enabled only if the Application command property is 
+                enabled.
 
 Module "Cpu"       (component MKL25Z128LK4)
 

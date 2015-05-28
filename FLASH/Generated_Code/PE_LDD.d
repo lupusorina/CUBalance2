@@ -17,24 +17,13 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h \
- ../Generated_Code/I2C2.h ../Generated_Code/CsIO1.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/null.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/eof.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/va_list.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/file_struc.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio_api.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdarg.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdarg \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h \
- ../Generated_Code/IO1.h ../Generated_Code/TI1.h \
+ ../Generated_Code/I2C2.h ../Generated_Code/TI1.h \
  ../Generated_Code/TimerIntLdd1.h ../Generated_Code/TU2.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h \
+ ../Generated_Code/FMSTR1.h ../Generated_Code/UART0.h \
+ ../Generated_Code/freemaster.h ../Generated_Code/freemaster_defcfg.h \
+ ../Generated_Code/freemaster_cfg.h ../Generated_Code/freemaster_cfggen.h \
+ ../Generated_Code/freemaster_tsa.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -82,38 +71,6 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h:
 
 ../Generated_Code/I2C2.h:
 
-../Generated_Code/CsIO1.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/null.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/wchar_t.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/eof.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/va_list.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/file_struc.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio_api.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdarg.h:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdarg:
-
-C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h:
-
-../Generated_Code/IO1.h:
-
 ../Generated_Code/TI1.h:
 
 ../Generated_Code/TimerIntLdd1.h:
@@ -121,3 +78,17 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM
 ../Generated_Code/TU2.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h:
+
+../Generated_Code/FMSTR1.h:
+
+../Generated_Code/UART0.h:
+
+../Generated_Code/freemaster.h:
+
+../Generated_Code/freemaster_defcfg.h:
+
+../Generated_Code/freemaster_cfg.h:
+
+../Generated_Code/freemaster_cfggen.h:
+
+../Generated_Code/freemaster_tsa.h:

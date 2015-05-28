@@ -31,9 +31,9 @@
 - \subpage TPM0
 - \subpage GPIO1
 - \subpage I2C2
-- \subpage IO1
 - \subpage TU2
 - \subpage TimerIntLdd1
+- \subpage UART0
 
 
 */

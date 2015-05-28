@@ -13,7 +13,7 @@ extern float gui_acc_x;
 extern float gui_acc_y;
 extern float gui_acc_z;
 extern float gui_angle;
-
+extern float gui_total_acc;
 extern float KP;
 extern float KD;
 extern float KI;

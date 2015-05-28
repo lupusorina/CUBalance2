@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-27, 21:57, # CodeGen: 53
+**     Date/Time   : 2015-05-28, 11:07, # CodeGen: 60
 **     Abstract    :
 **
 **     Settings    :
@@ -38,11 +38,11 @@
 #include "TPM0.h"
 #include "GPIO1.h"
 #include "I2C2.h"
-#include "CsIO1.h"
-#include "IO1.h"
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU2.h"
+#include "FMSTR1.h"
+#include "UART0.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -245,6 +245,30 @@ void PE_low_level_init(void)
                ));                                  
   /* NVIC_IPR4: PRI_17=0 */
   NVIC_IPR4 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_17(0xFF));                                   
+  /* SIM_SOPT2: UART0SRC=1 */
+  SIM_SOPT2 = (uint32_t)((SIM_SOPT2 & (uint32_t)~(uint32_t)(
+               SIM_SOPT2_UART0SRC(0x02)
+              )) | (uint32_t)(
+               SIM_SOPT2_UART0SRC(0x01)
+              ));                                  
+  /* PORTA_PCR1: ISF=0,MUX=2 */
+  PORTA_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x05)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x02)
+               ));                                  
+  /* PORTA_PCR2: ISF=0,MUX=2 */
+  PORTA_PCR2 = (uint32_t)((PORTA_PCR2 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x05)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x02)
+               ));                                  
+  /* NVIC_ISER: SETENA|=0x1000 */
+  NVIC_ISER |= NVIC_ISER_SETENA(0x1000);                                   
+  /* NVIC_IPR3: PRI_12=0 */
+  NVIC_IPR3 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_12(0xFF));                                   
   /* PORTA_PCR20: ISF=0,MUX=7 */
   PORTA_PCR20 = (uint32_t)((PORTA_PCR20 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK
@@ -257,11 +281,13 @@ void PE_low_level_init(void)
   TPM0_Init();
   /* ### GPIO_LDD "GPIO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)GPIO1_Init(NULL);
-  /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)IO1_Init(NULL);
   /* ### TimerInt_LDD "TimerIntLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)TimerIntLdd1_Init(NULL);
   /* ### TimerInt "TI1" init code ... */
+  /* ### Init_UART "UART0" init code ... */
+  UART0_Init();
+  /* ### FreeMaster "FMSTR1" init code ... */
+  FMSTR1_Init();
   __EI();
 }
   /* Flash configuration field */

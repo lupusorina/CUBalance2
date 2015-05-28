@@ -72,7 +72,6 @@ int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
 	MPU6050_ReadReg(ACC_REG_L, &acc_low,  1);
 	
 	for (i=1 ; i<100 ; i++);
-	//printf("%d ", ((uint16_t)acc_high << 8) | acc_low);
 			
 	int16_t ret = acc_high;
 	ret <<= 8; ret |= acc_low;
@@ -83,13 +82,12 @@ int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
 
 float MPU6050_Read_Angle(){
 	int16_t Acc_X, Acc_Y, Acc_Z;
-	//uint8_t who_am_i = 0;
+	
 	float ACCEL_XANGLE;
 	float ACCEL_YANGLE;
 	float total_acc;
 	float Acc_X_g, Acc_Y_g, Acc_Z_g;
-	//printf(" _________________\n");
-	//MPU6050_ReadReg(MPU6050_RA_ACCEL_XOUT_L, &who_am_i, 1);
+	
 	
 	Acc_X = MPU6050_Get_Acc(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
 
@@ -101,18 +99,14 @@ float MPU6050_Read_Angle(){
 	ACCEL_XANGLE = 57.295*atan((float)Acc_Y/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_X,2)));
 	ACCEL_YANGLE = 57.295*atan((float)-Acc_X/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_Y,2)));	
 
-
 	
-	printf("\nX g %f \n",Acc_X/16384.0f);
-	printf("\nY g %f \n",Acc_Y/16384.0f);
-	printf("\nZ g %f \n",Acc_Z/16384.0f);
-	printf("Angle %f\n", ACCEL_YANGLE);
-	
-	Acc_X_g = Acc_X/16384.0f;
-	Acc_Y_g = Acc_Y/16384.0f;
-	Acc_Z_g = Acc_Z/16384.0f;
-	total_acc = sqrt(pow(Acc_X_g,2) + pow(Acc_Y_g,2) + pow(Acc_Z_g,2));
-	printf("\n Total acc %f", total_acc);
+	gui_acc_x = Acc_X/16384.0f;
+	gui_acc_y = Acc_Y/16384.0f;
+	gui_acc_z = Acc_Z/16384.0f;
+	total_acc = sqrt(pow(gui_acc_x,2) + pow(gui_acc_y,2) + pow(gui_acc_z,2));
+	//printf("\n Total acc %f", total_acc);
+	gui_total_acc = total_acc;
+	gui_angle = ACCEL_YANGLE;
 	return ACCEL_YANGLE;
 }
 
@@ -241,5 +235,5 @@ void Setup1()
     MPU6050_WriteReg(  MPU6050_RA_FIFO_R_W, 0x00);
     //MPU6050_RA_WHO_AM_I             //Read-only, I2C address
  
-    printf("\nMPU6050 Setup Complete");
+    //printf("\nMPU6050 Setup Complete");
 }

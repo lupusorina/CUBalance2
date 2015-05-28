@@ -32,7 +32,8 @@
 #include "I2C2.h"
 #include "MPU6050.h"
 #include "PID.h"
-//#include "globals.h"
+#include "globals.h"
+#include "FMSTR1.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 
@@ -132,8 +133,8 @@ void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
 	stabilize();
-	//FMSTR1_Poll();
-	//FMSTR1_Recorder();
+	FMSTR1_Poll();
+	FMSTR1_Recorder();
 }
 
 /* END Events */

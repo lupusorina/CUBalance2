@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.156, Driver 01.10, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-28, 10:12, # CodeGen: 59
+**     Date/Time   : 2015-05-28, 13:56, # CodeGen: 63
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -21,7 +21,7 @@
 **            Counter frequency                            : Auto select
 **          Counter restart                                : On-match
 **            Period device                                : LPTMR0_CMR
-**            Period                                       : 0.3 sec
+**            Period                                       : 100 Hz
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_LPTimer
 **              Interrupt priority                         : minimal priority
@@ -145,10 +145,10 @@ LDD_TDeviceData* TU2_Init(LDD_TUserData *UserDataPtr)
   SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK;                                   
   /* LPTMR0_CSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TCF=1,TIE=0,TPS=0,TPP=0,TFC=0,TMS=0,TEN=0 */
   LPTMR0_CSR = (LPTMR_CSR_TCF_MASK | LPTMR_CSR_TPS(0x00)); /* Clear control register */
-  /* LPTMR0_CMR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COMPARE=0x927B */
-  LPTMR0_CMR = LPTMR_CMR_COMPARE(0x927B); /* Set up compare register */
-  /* LPTMR0_PSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,PRESCALE=5,PBYP=0,PCS=3 */
-  LPTMR0_PSR = (LPTMR_PSR_PRESCALE(0x05) | LPTMR_PSR_PCS(0x03)); /* Set up prescaler register */
+  /* LPTMR0_CMR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COMPARE=0x9C3F */
+  LPTMR0_CMR = LPTMR_CMR_COMPARE(0x9C3F); /* Set up compare register */
+  /* LPTMR0_PSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,PRESCALE=0,PBYP=0,PCS=3 */
+  LPTMR0_PSR = (LPTMR_PSR_PRESCALE(0x00) | LPTMR_PSR_PCS(0x03)); /* Set up prescaler register */
   /* NVIC_IPR7: PRI_28=0xC0 */
   NVIC_IPR7 = (uint32_t)((NVIC_IPR7 & (uint32_t)~(uint32_t)(
                NVIC_IP_PRI_28(0x3F)

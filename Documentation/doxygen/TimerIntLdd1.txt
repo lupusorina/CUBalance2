@@ -26,10 +26,10 @@ by the component.
     0x000000C1
  </td><td>LPTMR0_CSR register, peripheral TimerIntLdd1.</td></tr>
 <tr><td>0x40040008</td><td>LPTMR0_CMR</td><td>
-    0x0000927B
+    0x00009C3F
  </td><td>LPTMR0_CMR register, peripheral TimerIntLdd1.</td></tr>
 <tr><td>0x40040004</td><td>LPTMR0_PSR</td><td>
-    0x0000002B
+    0x00000003
  </td><td>LPTMR0_PSR register, peripheral TimerIntLdd1.</td></tr>
 <tr><td>0xE000E41C</td><td>NVIC_IPR7</td><td>
     0x000000C0
@@ -200,7 +200,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40040008</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000927B</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00009C3F</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 15</td><td>COMPARE</td><td>0x8000</td><td>Compare Value</td>
@@ -250,7 +250,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40040004</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000002B</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000003</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>3 - 6</td><td>PRESCALE</td><td>0x00</td><td>Prescale Value</td>
@@ -354,7 +354,7 @@ registers of the peripheral(s) configured by the component.
 **          Interrupt service/event                        : Enabled
 **            Interrupt                                    : INT_LPTimer
 **            Interrupt priority                           : minimal priority
-**          Interrupt period                               : 0.3 sec
+**          Interrupt period                               : 100 Hz
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : yes
