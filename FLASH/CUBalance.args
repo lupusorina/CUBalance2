@@ -23,8 +23,6 @@
 -gdwarf-2
 -gstrict-dwarf
 -T"D:/Licenta/Electronica/CUBalance/Project_Settings/Linker_Files/ProcessorExpert.ld"
--Xlinker
---gc-sections
 -L"C:/Freescale/CW MCU v10.4/MCU/ARM_GCC_Support/ewl/lib/armv6-m"
 -Wl,-Map,CUBalance.map
 -n

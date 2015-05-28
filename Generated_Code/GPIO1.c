@@ -6,7 +6,7 @@
 **     Component   : GPIO_LDD
 **     Version     : Component 01.128, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-15, 18:33, # CodeGen: 3
+**     Date/Time   : 2015-05-18, 20:40, # CodeGen: 45
 **     Abstract    :
 **         The HAL GPIO component will provide a low level API for unified
 **         access to general purpose digital input/output pins across
@@ -16,16 +16,16 @@
 **         portable to various microprocessors.
 **     Settings    :
 **          Component name                                 : GPIO1
-**          Port                                           : PTE
+**          Port                                           : PTD
 **          Port width                                     : 32 bits
-**          Mask of allocated pins                         : 200000
+**          Mask of allocated pins                         : 80
 **          Interrupt service/event                        : Disabled
 **          Bit fields                                     : 1
 **            Bit field                                    : 
-**              Field name                                 : HBridge_Enable
+**              Field name                                 : Motor_Direction
 **              Pins                                       : 1
 **                Pin                                      : 
-**                  Pin                                    : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX
+**                  Pin                                    : PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI
 **                  Pin signal                             : 
 **                  Initial pin direction                  : Output
 **                    Initial output state                 : 0
@@ -107,18 +107,18 @@ LDD_TDeviceData* GPIO1_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
   /* Save RTOS Device structure */
   DeviceDataPrv->UserData = UserDataPtr; /* Store the RTOS device structure */
-  /* GPIOE_PDOR: PDO&=~0x00200000 */
-  GPIOE_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x00200000));                                   
-  /* GPIOE_PDDR: PDD|=0x00200000 */
-  GPIOE_PDDR |= GPIO_PDDR_PDD(0x00200000);                                   
+  /* GPIOD_PDOR: PDO&=~0x80 */
+  GPIOD_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x80));                                   
+  /* GPIOD_PDDR: PDD|=0x80 */
+  GPIOD_PDDR |= GPIO_PDDR_PDD(0x80);                                   
   /* Initialization of Port Control registers */
-  /* PORTE_PCR21: ISF=0,MUX=1 */
-  PORTE_PCR21 = (uint32_t)((PORTE_PCR21 & (uint32_t)~(uint32_t)(
-                 PORT_PCR_ISF_MASK |
-                 PORT_PCR_MUX(0x06)
-                )) | (uint32_t)(
-                 PORT_PCR_MUX(0x01)
-                ));                                  
+  /* PORTD_PCR7: ISF=0,MUX=1 */
+  PORTD_PCR7 = (uint32_t)((PORTD_PCR7 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x06)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01)
+               ));                                  
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_GPIO1_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv);
@@ -152,15 +152,15 @@ void GPIO1_SetFieldValue(LDD_TDeviceData *DeviceDataPtr, LDD_GPIO_TBitField Fiel
 {
   (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
   switch (Field) {                     /* no break */
-    case HBridge_Enable: {             /* bit field #0 */
+    case Motor_Direction: {            /* bit field #0 */
       GPIO_PDD_SetPortDataOutput(GPIO1_MODULE_BASE_ADDRESS,
         (
           GPIO_PDD_GetPortDataOutput(GPIO1_MODULE_BASE_ADDRESS)
-          & ((GPIO1_TPortValue)(~((GPIO1_TPortValue)GPIO1_HBridge_Enable_MASK)))
+          & ((GPIO1_TPortValue)(~((GPIO1_TPortValue)GPIO1_Motor_Direction_MASK)))
         )
         | (
-          ((GPIO1_TPortValue)(Value << GPIO1_HBridge_Enable_START_BIT))
-          & ((GPIO1_TPortValue)GPIO1_HBridge_Enable_MASK)
+          ((GPIO1_TPortValue)(Value << GPIO1_Motor_Direction_START_BIT))
+          & ((GPIO1_TPortValue)GPIO1_Motor_Direction_MASK)
         )
       );
       break;
@@ -198,14 +198,14 @@ GPIO1_TFieldValue GPIO1_GetFieldValue(LDD_TDeviceData *DeviceDataPtr, LDD_GPIO_T
 {
   (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
   switch (Field) {                     /* no break */
-    case HBridge_Enable: {             /* bit field #0 */
+    case Motor_Direction: {            /* bit field #0 */
       return
         (GPIO1_TFieldValue)(
           (
             GPIO_PDD_GetPortDataInput(GPIO1_MODULE_BASE_ADDRESS)
-            & (GPIO1_TPortValue)GPIO1_HBridge_Enable_MASK
+            & (GPIO1_TPortValue)GPIO1_Motor_Direction_MASK
           )
-          >> GPIO1_HBridge_Enable_START_BIT
+          >> GPIO1_Motor_Direction_START_BIT
         );
     }
     default:
@@ -245,10 +245,10 @@ void GPIO1_ClearFieldBits(LDD_TDeviceData *DeviceDataPtr, LDD_GPIO_TBitField Fie
 {
   (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
   switch (Field) {                     /* no break */
-    case HBridge_Enable: {             /* bit field #0 */
+    case Motor_Direction: {            /* bit field #0 */
       GPIO_PDD_ClearPortDataOutputMask(GPIO1_MODULE_BASE_ADDRESS,
-        ((GPIO1_TPortValue)GPIO1_HBridge_Enable_MASK)
-        & ((GPIO1_TPortValue)(Mask << GPIO1_HBridge_Enable_START_BIT))
+        ((GPIO1_TPortValue)GPIO1_Motor_Direction_MASK)
+        & ((GPIO1_TPortValue)(Mask << GPIO1_Motor_Direction_START_BIT))
       );
       break;
     }
@@ -288,10 +288,10 @@ void GPIO1_SetFieldBits(LDD_TDeviceData *DeviceDataPtr, LDD_GPIO_TBitField Field
 {
   (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
   switch (Field) {                     /* no break */
-    case HBridge_Enable: {             /* bit field #0 */
+    case Motor_Direction: {            /* bit field #0 */
       GPIO_PDD_SetPortDataOutputMask(GPIO1_MODULE_BASE_ADDRESS,
-        ((GPIO1_TPortValue)GPIO1_HBridge_Enable_MASK)
-        & ((GPIO1_TPortValue)(Mask << GPIO1_HBridge_Enable_START_BIT))
+        ((GPIO1_TPortValue)GPIO1_Motor_Direction_MASK)
+        & ((GPIO1_TPortValue)(Mask << GPIO1_Motor_Direction_START_BIT))
       );
       break;
     }
@@ -331,10 +331,10 @@ void GPIO1_ToggleFieldBits(LDD_TDeviceData *DeviceDataPtr, LDD_GPIO_TBitField Fi
 {
   (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
   switch (Field) {                     /* no break */
-    case HBridge_Enable: {             /* bit field #0 */
+    case Motor_Direction: {            /* bit field #0 */
       GPIO_PDD_TogglePortDataOutputMask(GPIO1_MODULE_BASE_ADDRESS,
-        ((GPIO1_TPortValue)GPIO1_HBridge_Enable_MASK)
-        & ((GPIO1_TPortValue)(Mask << GPIO1_HBridge_Enable_START_BIT))
+        ((GPIO1_TPortValue)GPIO1_Motor_Direction_MASK)
+        & ((GPIO1_TPortValue)(Mask << GPIO1_Motor_Direction_START_BIT))
       );
       break;
     }

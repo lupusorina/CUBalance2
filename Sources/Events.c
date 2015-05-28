@@ -32,6 +32,7 @@
 #include "I2C2.h"
 #include "MPU6050.h"
 #include "PID.h"
+//#include "globals.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 
@@ -125,10 +126,14 @@ void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr)
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+//uint16_t acc_x, acc_y, acc_z;
 void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
 	stabilize();
+	//FMSTR1_Poll();
+	//FMSTR1_Recorder();
 }
 
 /* END Events */

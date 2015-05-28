@@ -43,10 +43,20 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
-
 #include "MPU6050.h"
-/* User includes (#include below this line is not maintained by Processor Expert) */
 
+/* User includes (#include below this line is not maintained by Processor Expert) */
+float gui_acc_x = 0;
+float gui_acc_y = 0;
+float gui_acc_z = 0;
+float gui_angle = 0;
+
+//int16_t Acc_X = 0;
+//int16_t Acc_Y = 0;
+//int16_t Acc_Z = 0;
+float KP = 0;
+float KD = 0;
+float KI = 0;
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
@@ -58,15 +68,14 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
   MPU6050_Setup();
   /* Write your code here */
-  GPIO1_SetFieldBits(GPIO1_DeviceData, HBridge_Enable, 1); // Enable H-Bridge Port A
+   // Enable H-Bridge Port A
   // UART Communication
  //PWM1_SetRatio16(5000);
  //PWM1_SetRatio16(10000);
  //PWM1_SetRatio16(15000);
   printf("Starting measurements \n");
   
-  //MPU6050_Test_I2C();
-  
+
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
   #ifdef PEX_RTOS_START

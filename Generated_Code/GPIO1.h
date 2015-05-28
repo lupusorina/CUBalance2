@@ -6,7 +6,7 @@
 **     Component   : GPIO_LDD
 **     Version     : Component 01.128, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-15, 18:33, # CodeGen: 3
+**     Date/Time   : 2015-05-18, 20:40, # CodeGen: 45
 **     Abstract    :
 **         The HAL GPIO component will provide a low level API for unified
 **         access to general purpose digital input/output pins across
@@ -16,16 +16,16 @@
 **         portable to various microprocessors.
 **     Settings    :
 **          Component name                                 : GPIO1
-**          Port                                           : PTE
+**          Port                                           : PTD
 **          Port width                                     : 32 bits
-**          Mask of allocated pins                         : 200000
+**          Mask of allocated pins                         : 80
 **          Interrupt service/event                        : Disabled
 **          Bit fields                                     : 1
 **            Bit field                                    : 
-**              Field name                                 : HBridge_Enable
+**              Field name                                 : Motor_Direction
 **              Pins                                       : 1
 **                Pin                                      : 
-**                  Pin                                    : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX
+**                  Pin                                    : PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI
 **                  Pin signal                             : 
 **                  Initial pin direction                  : Output
 **                    Initial output state                 : 0
@@ -87,7 +87,7 @@ extern "C" {
 
 
 /*! Peripheral base address of a device allocated by the component. This constant can be used directly in PDD macros. */
-#define GPIO1_PRPH_BASE_ADDRESS  0x400FF100U
+#define GPIO1_PRPH_BASE_ADDRESS  0x400FF0C0U
   
 /*! Device data structure pointer used when auto initialization property is enabled. This constant can be passed as a first parameter to all component's methods. */
 #define GPIO1_DeviceData  ((LDD_TDeviceData *)PE_LDD_GetDeviceStructure(PE_LDD_COMPONENT_GPIO1_ID))
@@ -103,16 +103,16 @@ extern "C" {
 /* Events configuration constants - generated for all enabled component's events */
 
 /* Definition of bit field constants */
-#define HBridge_Enable ((LDD_GPIO_TBitField)0)
+#define Motor_Direction ((LDD_GPIO_TBitField)0)
 
 /* Definition of implementation constants */
-#define GPIO1_ALLOCATED_PINS_MASK 0x00200000U /*!< Mask of all allocated pins from the port */
-#define GPIO1_MODULE_BASE_ADDRESS FPTE_BASE_PTR /*!< Name of macro used as the base address */
-#define GPIO1_PORTCONTROL_BASE_ADDRESS PORTE_BASE_PTR /*!< Name of macro used as the base address */
+#define GPIO1_ALLOCATED_PINS_MASK 0x80U /*!< Mask of all allocated pins from the port */
+#define GPIO1_MODULE_BASE_ADDRESS FPTD_BASE_PTR /*!< Name of macro used as the base address */
+#define GPIO1_PORTCONTROL_BASE_ADDRESS PORTD_BASE_PTR /*!< Name of macro used as the base address */
 #define GPIO1_AVAILABLE_EVENTS_MASK 0x00U /*!< Mask of all available events */
-#define GPIO1_FIELD_0_PIN_0 LDD_GPIO_PIN_21 /*!< Constant for the pin in the field used in the method ConnectPin */
-#define GPIO1_HBridge_Enable_START_BIT 21u /*!< Index of the starting bit of the bit field (0 represents LSB) */
-#define GPIO1_HBridge_Enable_MASK 0x00200000u /*!< Mask of the bits allocated by the bit field (within the port) */
+#define GPIO1_FIELD_0_PIN_0 LDD_GPIO_PIN_7 /*!< Constant for the pin in the field used in the method ConnectPin */
+#define GPIO1_Motor_Direction_START_BIT 7u /*!< Index of the starting bit of the bit field (0 represents LSB) */
+#define GPIO1_Motor_Direction_MASK 0x80u /*!< Mask of the bits allocated by the bit field (within the port) */
 /* Representation of unaligned data value of the port.
    Unsigned integer of proper width depending on the size of the GPIO port allocated.
    Typically the value of n-th bit represents the data for the n-th pin within the port.

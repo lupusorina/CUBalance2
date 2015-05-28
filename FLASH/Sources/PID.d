@@ -44,7 +44,9 @@ Sources/PID.o: ../Sources/PID.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h
+ D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
+ ../Sources/globals.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -137,3 +139,7 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h:
+
+../Sources/globals.h:

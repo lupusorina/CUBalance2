@@ -26,7 +26,7 @@ by the component.
     0x000000C1
  </td><td>LPTMR0_CSR register, peripheral TimerIntLdd1.</td></tr>
 <tr><td>0x40040008</td><td>LPTMR0_CMR</td><td>
-    0x0000F423
+    0x0000927B
  </td><td>LPTMR0_CMR register, peripheral TimerIntLdd1.</td></tr>
 <tr><td>0x40040004</td><td>LPTMR0_PSR</td><td>
     0x0000002B
@@ -200,7 +200,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40040008</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000F423</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000927B</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 15</td><td>COMPARE</td><td>0x8000</td><td>Compare Value</td>
@@ -354,7 +354,7 @@ registers of the peripheral(s) configured by the component.
 **          Interrupt service/event                        : Enabled
 **            Interrupt                                    : INT_LPTimer
 **            Interrupt priority                           : minimal priority
-**          Interrupt period                               : 0.5 sec
+**          Interrupt period                               : 0.3 sec
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : yes

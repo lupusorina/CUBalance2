@@ -6,7 +6,7 @@
 **     Component   : Init_TPM
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-29, 17:09, # CodeGen: 30
+**     Date/Time   : 2015-05-18, 20:12, # CodeGen: 44
 **     Abstract    :
 **          This file implements the TPM (TPM0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -52,7 +52,17 @@
 **                Channel interrupt                        : Disabled
 **                DMA request                              : Disabled
 **            Channel 4                                    : Disabled
-**            Channel 5                                    : Disabled
+**            Channel 5                                    : Enabled
+**              Channel mode                               : Edge-aligned PWM
+**                PWM polarity                             : High-true
+**                Channel value register                   : 0
+**              Pin                                        : Enabled
+**                Pin                                      : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
+**                Pin signal                               : 
+**              Interrupt/DMA                              : 
+**                Interrupt                                : INT_TPM0
+**                Channel interrupt                        : Disabled
+**                DMA request                              : Disabled
 **          Pins                                           : 
 **            External clock pin                           : Disabled
 **            HW Synchronization trigger                   : Disabled

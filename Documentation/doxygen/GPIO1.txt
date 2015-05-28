@@ -18,22 +18,22 @@ by the component.
 <table>
 <tr><td colspan="4" class="ttitle1">GPIO1 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
-<tr><td>0x400FF100</td><td>GPIOE_PDOR</td><td>
+<tr><td>0x400FF0C0</td><td>GPIOD_PDOR</td><td>
     0x00000000
- </td><td>GPIOE_PDOR register, peripheral GPIO1.</td></tr>
-<tr><td>0x400FF114</td><td>GPIOE_PDDR</td><td>
-    0x00200000
- </td><td>GPIOE_PDDR register, peripheral GPIO1.</td></tr>
-<tr><td>0x4004D054</td><td>PORTE_PCR21</td><td>
+ </td><td>GPIOD_PDOR register, peripheral GPIO1.</td></tr>
+<tr><td>0x400FF0D4</td><td>GPIOD_PDDR</td><td>
+    0x00000080
+ </td><td>GPIOD_PDDR register, peripheral GPIO1.</td></tr>
+<tr><td>0x4004C01C</td><td>PORTD_PCR7</td><td>
     0x00000100
- </td><td>PORTE_PCR21 register, peripheral GPIO1.</td></tr>
+ </td><td>PORTD_PCR7 register, peripheral GPIO1.</td></tr>
 </table>
 <br/>
 \page GPIO1_regs_details Register Initialization Details
 This page contains detailed description of initialization values for the 
 registers of the peripheral(s) configured by the component. 
 
-<div class="reghdr1">GPIOE_PDOR</div>
+<div class="reghdr1">GPIOD_PDOR</div>
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
@@ -69,13 +69,13 @@ registers of the peripheral(s) configured by the component.
 </table>
         
 </div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF100</td></tr>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF0C0</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>PDO</td><td>0x00</td><td>Port Data Output</td>
 </tr></table>
-<div class="reghdr1">GPIOE_PDDR</div>
+<div class="reghdr1">GPIOD_PDDR</div>
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
@@ -111,13 +111,13 @@ registers of the peripheral(s) configured by the component.
 </table>
         
 </div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF114</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00200000</td></tr>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF0D4</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000080</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>PDD</td><td>0x00</td><td>Port Data Direction</td>
 </tr></table>
-<div class="reghdr1">PORTE_PCR21</div>
+<div class="reghdr1">PORTD_PCR7</div>
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
@@ -161,7 +161,7 @@ registers of the peripheral(s) configured by the component.
 </table>
         
 </div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004D054</td></tr>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004C01C</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000100</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
@@ -179,16 +179,16 @@ registers of the peripheral(s) configured by the component.
 \page GPIO1_settings Component Settings
 \code
 **          Component name                                 : GPIO1
-**          Port                                           : PTE
+**          Port                                           : PTD
 **          Port width                                     : 32 bits
-**          Mask of allocated pins                         : 200000
+**          Mask of allocated pins                         : 80
 **          Interrupt service/event                        : Disabled
 **          Bit fields                                     : 1
 **            Bit field                                    : 
-**              Field name                                 : HBridge_Enable
+**              Field name                                 : Motor_Direction
 **              Pins                                       : 1
 **                Pin                                      : 
-**                  Pin                                    : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX
+**                  Pin                                    : PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI
 **                  Pin signal                             : 
 **                  Initial pin direction                  : Output
 **                    Initial output state                 : 0

@@ -13,8 +13,6 @@
 -I"C:/Freescale/CW MCU v10.4/MCU/ProcessorExpert/lib/Kinetis/iofiles"
 -I"C:/Freescale/CW MCU v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc"
 -O0
--ffunction-sections
--fdata-sections
 -Wall
 -c
 -fmessage-length=0

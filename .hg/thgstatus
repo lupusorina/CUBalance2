@@ -1,0 +1,10 @@
+m
+mDocumentation
+rDocumentation/doxygen
+mFLASH
+rFLASH/Generated_Code
+mFLASH/Project_Settings/Startup_Code
+rFLASH/Sources
+rGenerated_Code
+mProject_Settings/Debugger
+mSources

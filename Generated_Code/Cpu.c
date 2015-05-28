@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-29, 17:13, # CodeGen: 31
+**     Date/Time   : 2015-05-27, 21:57, # CodeGen: 53
 **     Abstract    :
 **
 **     Settings    :
@@ -105,8 +105,9 @@ void __init_hardware(void)
   /* SIM_COPC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COPT=0,COPCLKS=0,COPW=0 */
   SIM_COPC = SIM_COPC_COPT(0x00);                                   
   /* System clock initialization */
-  /* SIM_SCGC5: PORTE=1,PORTC=1,PORTA=1 */
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
+               SIM_SCGC5_PORTD_MASK |
                SIM_SCGC5_PORTC_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   /* SIM_SCGC5: LPTMR=1 */
@@ -230,6 +231,13 @@ void PE_low_level_init(void)
                ));                                  
   /* PORTC_PCR4: ISF=0,MUX=4 */
   PORTC_PCR4 = (uint32_t)((PORTC_PCR4 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x03)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x04)
+               ));                                  
+  /* PORTD_PCR5: ISF=0,MUX=4 */
+  PORTD_PCR5 = (uint32_t)((PORTD_PCR5 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
                 PORT_PCR_MUX(0x03)
                )) | (uint32_t)(

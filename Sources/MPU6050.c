@@ -8,9 +8,13 @@
 #include "MPU6050.h"
 #include "I2C2.h"
 #include "math.h" 
+#include "globals.h"
+#include<stdio.h>
+#include<stdlib.h>
+
 
 static MPU6050_TDataState deviceData;
- 
+
 uint8_t MPU6050_ReadReg(uint8_t addr, uint8_t *data, short dataSize) {
   uint8_t res;
  
@@ -32,8 +36,10 @@ uint8_t MPU6050_ReadReg(uint8_t addr, uint8_t *data, short dataSize) {
   return ERR_OK;
 }
  
-uint8_t MPU6050_WriteReg(uint8_t addr, uint8_t val) {
-  uint8_t buf[2], res;
+
+
+int16_t MPU6050_WriteReg(int16_t addr, int16_t val) {
+  int16_t buf[2], res;
  
   buf[0] = addr;
   buf[1] = val;
@@ -46,20 +52,78 @@ uint8_t MPU6050_WriteReg(uint8_t addr, uint8_t val) {
   return ERR_OK;
 }
 
+
 void MPU6050_Setup(){
 	// setup i2c driver
 	deviceData.handle = I2C2_Init(&deviceData);
+	MPU6050_WriteReg(MPU6050_RA_PWR_MGMT_1,0x00);
 	
-	MPU6050_WriteReg(MPU6050_RA_PWR_MGMT_1, 0x00);
+	MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG, 0xE0);
+	//MPU6050_WriteReg(MPU6050_RA_SMPLRT_DIV, 0x07);
+	//MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG,0x01);
+	
+	
 }
 
-void MPU6050_Setup1()
+int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
+	uint8_t acc_low, acc_high;
+	uint8_t i;
+	MPU6050_ReadReg(ACC_REG_H, &acc_high, 1);
+	MPU6050_ReadReg(ACC_REG_L, &acc_low,  1);
+	
+	for (i=1 ; i<100 ; i++);
+	//printf("%d ", ((uint16_t)acc_high << 8) | acc_low);
+			
+	int16_t ret = acc_high;
+	ret <<= 8; ret |= acc_low;
+	return ret;
+}
+
+
+
+float MPU6050_Read_Angle(){
+	int16_t Acc_X, Acc_Y, Acc_Z;
+	//uint8_t who_am_i = 0;
+	float ACCEL_XANGLE;
+	float ACCEL_YANGLE;
+	float total_acc;
+	float Acc_X_g, Acc_Y_g, Acc_Z_g;
+	//printf(" _________________\n");
+	//MPU6050_ReadReg(MPU6050_RA_ACCEL_XOUT_L, &who_am_i, 1);
+	
+	Acc_X = MPU6050_Get_Acc(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
+
+	Acc_Y = MPU6050_Get_Acc(MPU6050_RA_ACCEL_YOUT_H, MPU6050_RA_ACCEL_YOUT_L);
+	
+	Acc_Z = MPU6050_Get_Acc(MPU6050_RA_ACCEL_ZOUT_H, MPU6050_RA_ACCEL_ZOUT_L);
+	
+	
+	ACCEL_XANGLE = 57.295*atan((float)Acc_Y/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_X,2)));
+	ACCEL_YANGLE = 57.295*atan((float)-Acc_X/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_Y,2)));	
+
+
+	
+	printf("\nX g %f \n",Acc_X/16384.0f);
+	printf("\nY g %f \n",Acc_Y/16384.0f);
+	printf("\nZ g %f \n",Acc_Z/16384.0f);
+	printf("Angle %f\n", ACCEL_YANGLE);
+	
+	Acc_X_g = Acc_X/16384.0f;
+	Acc_Y_g = Acc_Y/16384.0f;
+	Acc_Z_g = Acc_Z/16384.0f;
+	total_acc = sqrt(pow(Acc_X_g,2) + pow(Acc_Y_g,2) + pow(Acc_Z_g,2));
+	printf("\n Total acc %f", total_acc);
+	return ACCEL_YANGLE;
+}
+
+
+
+void Setup1()
 {
-	deviceData.handle = I2C2_Init(&deviceData);
     //Sets sample rate to 8000/1+7 = 1000Hz
-	MPU6050_WriteReg(MPU6050_RA_SMPLRT_DIV, 0x07);
+	MPU6050_WriteReg(  MPU6050_RA_SMPLRT_DIV, 0x07);
     //Disable FSync, 256Hz DLPF
-	MPU6050_WriteReg(MPU6050_RA_CONFIG, 0x00);
+    MPU6050_WriteReg(  MPU6050_RA_CONFIG, 0x00);
     //Disable gyro self tests, scale of 500 degrees/s
     MPU6050_WriteReg(  MPU6050_RA_GYRO_CONFIG, 0b00001000);
     //Disable accel self tests, scale of +-2g, no DHPF
@@ -177,72 +241,5 @@ void MPU6050_Setup1()
     MPU6050_WriteReg(  MPU6050_RA_FIFO_R_W, 0x00);
     //MPU6050_RA_WHO_AM_I             //Read-only, I2C address
  
-    printf("MPU6050 Setup Complete\n");
-}
-
-int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
-	uint8_t acc_low, acc_high;
-	
-	MPU6050_ReadReg(ACC_REG_H, &acc_high, 1);
-	MPU6050_ReadReg(ACC_REG_L, &acc_low,  1);
-	printf(" _________________");
-	//printf("%d ", ((uint16_t)acc_high << 8) | acc_low);
-			
-	return ((uint16_t)acc_high << 8) | acc_low;
-}
-
-
-
-float MPU6050_Read_Angle(){
-	volatile int16_t Acc_X, Acc_Y, Acc_Z;
-	//float ACCEL_XANGLE;
-	float ACCEL_YANGLE;
-	//printf(" _________________\n");
-	Acc_X = MPU6050_Get_Acc(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
-	Acc_Y = MPU6050_Get_Acc(MPU6050_RA_ACCEL_YOUT_H, MPU6050_RA_ACCEL_YOUT_L);
-	Acc_Z = MPU6050_Get_Acc(MPU6050_RA_ACCEL_ZOUT_H, MPU6050_RA_ACCEL_ZOUT_L);
-	
-	
-	//ACCEL_XANGLE = 57.295*atan((float)Acc_Y/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_X,2)));
-	ACCEL_YANGLE = 57.295*atan((float)-Acc_X/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_Y,2)));	
-	//printf(" _________________\n");
-	//printf("x: %d; y: %d; z: %d\n", Acc_X, Acc_Y, Acc_Z);
-	//printf("Angles %d , %d\n", ACCEL_XANGLE,ACCEL_YANGLE);
-	
-	return ACCEL_YANGLE;
-}
-
-
-
-void MPU6050_Test_I2C()
-{
-	
-    unsigned char Data = 0x00;
-    uint8_t ACCEL_XOUT_H,ACCEL_XOUT_L,ACCEL_YOUT_H,ACCEL_YOUT_L,ACCEL_ZOUT_H,ACCEL_ZOUT_L;
-    int16_t ACCEL_XOUT, ACCEL_YOUT,ACCEL_ZOUT;
-  //  Setup_MPU6050();
-	
-	MPU6050_ReadReg (MPU6050_RA_WHO_AM_I, &Data, 1);
-	printf("Primit %x\n", Data);
-	
-	MPU6050_ReadReg(MPU6050_RA_ACCEL_XOUT_H, &ACCEL_XOUT_H, 1);
-	MPU6050_ReadReg(MPU6050_RA_ACCEL_XOUT_L, &ACCEL_XOUT_L, 1);
-	MPU6050_ReadReg(MPU6050_RA_ACCEL_YOUT_H, &ACCEL_YOUT_H, 1);
-	MPU6050_ReadReg(MPU6050_RA_ACCEL_YOUT_L, &ACCEL_YOUT_L, 1);
-	MPU6050_ReadReg(MPU6050_RA_ACCEL_ZOUT_H, &ACCEL_ZOUT_H, 1);
-	MPU6050_ReadReg(MPU6050_RA_ACCEL_ZOUT_L, &ACCEL_ZOUT_L, 1);
-	//printf("x = %d ", 	ACCEL_XOUT_H);
-	
-	ACCEL_XOUT = ((ACCEL_XOUT_H<<8)|ACCEL_XOUT_L);
-	ACCEL_YOUT = ((ACCEL_YOUT_H<<8)|ACCEL_YOUT_L);
-	ACCEL_ZOUT = ((ACCEL_ZOUT_H<<8)|ACCEL_ZOUT_L);
-	
-	
-	printf("x = %d ", 	ACCEL_XOUT);
-	printf("y = %d ", 	ACCEL_YOUT);
-	printf("z = %d \n", ACCEL_ZOUT);
-	
-	
-	
-	//I2C2_Deinit(deviceData.handle);  
+    printf("\nMPU6050 Setup Complete");
 }
