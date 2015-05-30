@@ -23,7 +23,7 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c \
  ../Generated_Code/FMSTR1.h ../Generated_Code/UART0.h \
  ../Generated_Code/freemaster.h ../Generated_Code/freemaster_defcfg.h \
  ../Generated_Code/freemaster_cfg.h ../Generated_Code/freemaster_cfggen.h \
- ../Generated_Code/freemaster_tsa.h \
+ ../Generated_Code/freemaster_tsa.h ../Generated_Code/EInt1.h \
  D:/Licenta/Electronica/CUBalance/Sources/Events.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Types.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Error.h \
@@ -36,6 +36,7 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h \
@@ -49,7 +50,8 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TimerIntLdd1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h
+ D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -117,6 +119,8 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/LPTMR_PDD.h:
 
 ../Generated_Code/freemaster_tsa.h:
 
+../Generated_Code/EInt1.h:
+
 D:/Licenta/Electronica/CUBalance/Sources/Events.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/PE_Types.h:
@@ -140,6 +144,8 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
 
@@ -168,3 +174,5 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/TU2.h:
 D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h:

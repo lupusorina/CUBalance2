@@ -19,6 +19,7 @@
 "./Generated_Code/I2C2.o"
 "./Generated_Code/GPIO1.o"
 "./Generated_Code/FMSTR1.o"
+"./Generated_Code/EInt1.o"
 "./Generated_Code/Cpu.o"
 "./Project_Settings/Startup_Code/__arm_start.o"
 "./Project_Settings/Startup_Code/__arm_end.o"

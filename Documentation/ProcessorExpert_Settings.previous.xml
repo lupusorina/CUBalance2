@@ -303,7 +303,7 @@
     <Compiler v="GNU C Compiler" />
     <CompilerProperties>
       <Compiler v="GNU C Compiler" />
-      <enumgroup name="Unhandled vectors" v="One handler for all">
+      <enumgroup name="Unhandled vectors" v="Own handler for every">
         <Unhandled_int_code>
           <StrgList><![CDATA[/* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
 PE_DEBUGHALT();
@@ -1376,13 +1376,13 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="FMSTR1" type="FreeMaster">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="FMSTR1" />
       <Interrupt_mode v="Mixed interrupt and polling mode" />
       <enumgroup name="Device" v="SCI">
         <inhrbean type="Init_UART">
-          <Enabled v="N" />
+          <Enabled v="Y" />
           <Template v="Init_UART_VAR0" />
           <Properties>
             <Component_name v="UART0" />
@@ -1519,6 +1519,48 @@ PE_DEBUGHALT();
     </Methods>
     <Events>
       <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="EInt1" type="ExtInt_LDD">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="EInt1" />
+      <Pin v="PTD3/SPI0_MISO/UART2_TX/TPM0_CH3/SPI0_MOSI" />
+      <Pin_signal v="" />
+      <Generate_interrupt_on sel_value="rising edge">
+        
+rising or falling edge
+
+        <EmptySection_DummyValue />
+      </Generate_interrupt_on>
+      <Interrupt v="INT_PORTD" />
+      <Interrupt_priority v="medium priority" />
+      <group name="Initialization">
+        <Enabled_in_init__code v="yes" />
+        <list name="Auto Initialization" v="1">
+          <Auto_initialization v="no" />
+        </list>
+        <group name="Event mask">
+          <OnInterrupt v="Enabled" />
+        </group>
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+      <Deinit v="don&amp;apos;t generate code" />
+      <Enable v="don&amp;apos;t generate code" />
+      <Disable v="don&amp;apos;t generate code" />
+      <GetVal v="don&amp;apos;t generate code" />
+      <SetEdge v="don&amp;apos;t generate code" />
+      <SetOperationMode v="don&amp;apos;t generate code" />
+      <GetDriverState v="don&amp;apos;t generate code" />
+      <ConnectPin v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+      <event name="OnInterrupt" v="generate code">
+        <Event_procedure_name v="EInt1_OnInterrupt" />
+      </event>
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>

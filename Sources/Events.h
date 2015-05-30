@@ -41,6 +41,7 @@
 #include "TU2.h"
 #include "FMSTR1.h"
 #include "UART0.h"
+#include "EInt1.h"
 #include "TPM0.h"
 #include "MPU6050.h"
 #ifdef __cplusplus
@@ -154,6 +155,23 @@ void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr);
 ** ===================================================================
 */
 void TI1_OnInterrupt(void);
+
+/*
+** ===================================================================
+**     Event       :  EInt1_OnInterrupt (module Events)
+**
+**     Component   :  EInt1 [ExtInt_LDD]
+*/
+/*!
+**     @brief
+**         This event is called when an active signal edge/level has
+**         occurred.
+**     @param
+**         UserDataPtr     - Pointer to RTOS device
+**                           data structure pointer.
+*/
+/* ===================================================================*/
+void EInt1_OnInterrupt(LDD_TUserData *UserDataPtr);
 
 /* END Events */
 

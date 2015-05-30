@@ -57,15 +57,16 @@ void MPU6050_Setup(){
 	// setup i2c driver
 	deviceData.handle = I2C2_Init(&deviceData);
 	MPU6050_WriteReg(MPU6050_RA_PWR_MGMT_1,0x00);
-	
+	MPU6050_WriteReg(MPU6050_INT_ENABLE, 0x01);
 	//MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG, 0xE0);
+	//MPU6050_WriteReg(MPU6050_RA_GYRO_CONFIG, 0xE0);
 	//MPU6050_WriteReg(MPU6050_RA_SMPLRT_DIV, 0x07);
 	//MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG,0x01);
 	
 	
 }
 
-int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
+int16_t MPU6050_Get_Data(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
 	uint8_t acc_low, acc_high;
 	uint16_t i;
 	
@@ -91,30 +92,51 @@ float MPU6050_Read_Angle(){
 	unsigned char Data;
 	MPU6050_ReadReg( MPU6050_RA_WHO_AM_I, &Data, 1);
 	
-	Acc_X = MPU6050_Get_Acc(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
-
-	Acc_Y = MPU6050_Get_Acc(MPU6050_RA_ACCEL_YOUT_H, MPU6050_RA_ACCEL_YOUT_L);
+	//Read accelerations
+	Acc_X = MPU6050_Get_Data(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
+	Acc_Y = MPU6050_Get_Data(MPU6050_RA_ACCEL_YOUT_H, MPU6050_RA_ACCEL_YOUT_L);
+	Acc_Z = MPU6050_Get_Data(MPU6050_RA_ACCEL_ZOUT_H, MPU6050_RA_ACCEL_ZOUT_L);
 	
-	Acc_Z = MPU6050_Get_Acc(MPU6050_RA_ACCEL_ZOUT_H, MPU6050_RA_ACCEL_ZOUT_L);
-	
-	
+	//Calculate angle
 	ACCEL_XANGLE = 57.295*atan((float)Acc_Y/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_X,2)));
 	ACCEL_YANGLE = 57.295*atan((float)-Acc_X/ sqrt(pow((float)Acc_Z,2)+pow((float)Acc_Y,2)));	
 
-	
+	//Send to freemaster
 	gui_acc_x = Acc_X/16384.0f;
 	gui_acc_y = Acc_Y/16384.0f;
 	gui_acc_z = Acc_Z/16384.0f;
 	total_acc = sqrt(pow(gui_acc_x,2) + pow(gui_acc_y,2) + pow(gui_acc_z,2));
-	//printf("\n Total acc %f", total_acc);
 	gui_total_acc = total_acc;
 	gui_angle = ACCEL_XANGLE;
 	return ACCEL_XANGLE;
 }
 
+int32_t GYRO_XOUT_OFFSET = -448;
+int32_t GYRO_YOUT_OFFSET = 64;
+int32_t GYRO_ZOUT_OFFSET = -192;
+ 
+volatile uint32_t i = 0;
+
+void Get_Gyro_Rates()
+{
+	
+	int16_t Gyro_X;
+	int16_t Gyro_Y;
+	int16_t Gyro_Z;
+
+	
+	Gyro_X = MPU6050_Get_Data (MPU6050_RA_GYRO_XOUT_H, MPU6050_RA_GYRO_XOUT_L);
+	Gyro_Y = MPU6050_Get_Data (MPU6050_RA_GYRO_YOUT_H, MPU6050_RA_GYRO_YOUT_L);
+	Gyro_Z = MPU6050_Get_Data (MPU6050_RA_GYRO_ZOUT_H, MPU6050_RA_GYRO_ZOUT_L);
+		
+	gui_gyro_x = (Gyro_X - GYRO_XOUT_OFFSET) / GYRO_SENSITIVITY;
+	gui_gyro_y = (Gyro_Y - GYRO_YOUT_OFFSET) / GYRO_SENSITIVITY;
+	gui_gyro_z = (Gyro_Z - GYRO_ZOUT_OFFSET) / GYRO_SENSITIVITY;
+}
 
 
-void Setup1()
+
+void MPU6050_Setup1()
 {
     //Sets sample rate to 8000/1+7 = 1000Hz
 	MPU6050_WriteReg(  MPU6050_RA_SMPLRT_DIV, 0x07);

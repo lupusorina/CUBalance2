@@ -75,6 +75,10 @@ Module "FMSTR1"    (component FreeMaster)
                 are any data to be returned back to the PC.  This method is enabled only if the Application command property is 
                 enabled.
 
+Module "EInt1"     (component ExtInt_LDD)
+   - EInt1_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+
 Module "Cpu"       (component MKL25Z128LK4)
 
 ===================================================================================

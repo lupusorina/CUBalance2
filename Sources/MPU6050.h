@@ -127,7 +127,7 @@
 #define MPU6050_RA_FIFO_COUNTH 0x72
 #define MPU6050_RA_FIFO_COUNTL 0x73
 #define MPU6050_RA_FIFO_R_W 0x74
-
+#define MPU6050_INT_ENABLE 0x38
 typedef struct {								
   volatile bool dataReceivedFlg; /* set to TRUE by the interrupt if we have received data */
   volatile bool dataTransmittedFlg; /* set to TRUE by the interrupt if we have set data */
@@ -138,9 +138,10 @@ typedef struct {
 //void MPU6050_Test_I2C(void);
 
 void MPU6050_Setup();
-void Setup1();
+void MPU6050_Setup1();
 float MPU6050_Read_Angle();
-
+void Get_Gyro_Rates();
+void Calibrate_Gyros();
 #endif /* MPU6050_H_ */
 
 

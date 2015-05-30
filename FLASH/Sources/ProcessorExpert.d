@@ -40,6 +40,7 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_cfggen.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_tsa.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  ../Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h \
@@ -47,7 +48,8 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TI1.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h
+ D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -131,6 +133,8 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_tsa.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/UART0.h:
 
+D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h:
+
 D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
 
 ../Sources/MPU6050.h:
@@ -146,3 +150,5 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h:
 D:/Licenta/Electronica/CUBalance/Generated_Code/TI1.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h:

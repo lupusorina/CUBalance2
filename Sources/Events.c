@@ -131,9 +131,31 @@ void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr)
 void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
+	Get_Gyro_Rates();
 	stabilize();
 	FMSTR1_Poll();
 	FMSTR1_Recorder();
+}
+
+/*
+** ===================================================================
+**     Event       :  EInt1_OnInterrupt (module Events)
+**
+**     Component   :  EInt1 [ExtInt_LDD]
+*/
+/*!
+**     @brief
+**         This event is called when an active signal edge/level has
+**         occurred.
+**     @param
+**         UserDataPtr     - Pointer to RTOS device
+**                           data structure pointer.
+*/
+/* ===================================================================*/
+void EInt1_OnInterrupt(LDD_TUserData *UserDataPtr)
+{
+  int i;
+  for (i = 0; i <= 10; i++){};
 }
 
 /* END Events */
