@@ -68,10 +68,16 @@ void stabilize()
 	float error_calc;
 	
 	error_calc  = error_calculation();
-	Pid_params param = {30.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+	Pid_params param = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+	
+	param.kd = KD;
+	param.ki = KI;
+	param.kp = KP;
+	
 	
 	pid_output = pid(error_calc, &param);
 	
+	gui_pid_output = pid_output;
 	set_motor_speed(pid_output);
 	
 	//printf("_____________\n");

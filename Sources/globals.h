@@ -17,5 +17,6 @@ extern float gui_total_acc;
 extern float KP;
 extern float KD;
 extern float KI;
+extern float gui_pid_output;
 //extern int16_t Acc_X, Acc_Y, Acc_Z;
 #endif /* GLOBALS_H_ */

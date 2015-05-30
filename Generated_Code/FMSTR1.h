@@ -6,7 +6,7 @@
 **     Component   : FreeMaster
 **     Version     : Component 01.101, Driver 01.05, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-28, 11:07, # CodeGen: 60
+**     Date/Time   : 2015-05-28, 18:26, # CodeGen: 68
 **     Abstract    :
 **          This component encapsulates the FreeMASTER driver. The FreeMASTER
 **          driver implements all the features necessary to establish a communication

@@ -52,6 +52,8 @@ float gui_acc_z = 0;
 float gui_total_acc = 0;
 float gui_angle = 0;
 
+float gui_pid_output = 0;
+
 //int16_t Acc_X = 0;
 //int16_t Acc_Y = 0;
 //int16_t Acc_Z = 0;

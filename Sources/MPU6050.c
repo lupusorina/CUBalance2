@@ -58,7 +58,7 @@ void MPU6050_Setup(){
 	deviceData.handle = I2C2_Init(&deviceData);
 	MPU6050_WriteReg(MPU6050_RA_PWR_MGMT_1,0x00);
 	
-	MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG, 0xE0);
+	//MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG, 0xE0);
 	//MPU6050_WriteReg(MPU6050_RA_SMPLRT_DIV, 0x07);
 	//MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG,0x01);
 	
@@ -67,12 +67,13 @@ void MPU6050_Setup(){
 
 int16_t MPU6050_Get_Acc(uint8_t ACC_REG_H, uint8_t ACC_REG_L){
 	uint8_t acc_low, acc_high;
-	uint8_t i;
+	uint16_t i;
+	
+	for (i=1 ; i<1000 ; i++){};
+	
 	MPU6050_ReadReg(ACC_REG_H, &acc_high, 1);
 	MPU6050_ReadReg(ACC_REG_L, &acc_low,  1);
 	
-	for (i=1 ; i<100 ; i++);
-			
 	int16_t ret = acc_high;
 	ret <<= 8; ret |= acc_low;
 	return ret;
@@ -87,7 +88,8 @@ float MPU6050_Read_Angle(){
 	float ACCEL_YANGLE;
 	float total_acc;
 	float Acc_X_g, Acc_Y_g, Acc_Z_g;
-	
+	unsigned char Data;
+	MPU6050_ReadReg( MPU6050_RA_WHO_AM_I, &Data, 1);
 	
 	Acc_X = MPU6050_Get_Acc(MPU6050_RA_ACCEL_XOUT_H, MPU6050_RA_ACCEL_XOUT_L);
 
@@ -106,8 +108,8 @@ float MPU6050_Read_Angle(){
 	total_acc = sqrt(pow(gui_acc_x,2) + pow(gui_acc_y,2) + pow(gui_acc_z,2));
 	//printf("\n Total acc %f", total_acc);
 	gui_total_acc = total_acc;
-	gui_angle = ACCEL_YANGLE;
-	return ACCEL_YANGLE;
+	gui_angle = ACCEL_XANGLE;
+	return ACCEL_XANGLE;
 }
 
 

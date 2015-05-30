@@ -33,7 +33,6 @@
 #include "MPU6050.h"
 #include "PID.h"
 #include "globals.h"
-#include "FMSTR1.h"
 #ifdef __cplusplus
 extern "C" {
 #endif 
