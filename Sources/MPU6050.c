@@ -57,7 +57,7 @@ void MPU6050_Setup(){
 	// setup i2c driver
 	deviceData.handle = I2C2_Init(&deviceData);
 	MPU6050_WriteReg(MPU6050_RA_PWR_MGMT_1,0x00);
-	MPU6050_WriteReg(MPU6050_INT_ENABLE, 0x01);
+	//MPU6050_WriteReg(MPU6050_INT_ENABLE, 0x01);
 	//MPU6050_WriteReg(MPU6050_RA_ACCEL_CONFIG, 0xE0);
 	//MPU6050_WriteReg(MPU6050_RA_GYRO_CONFIG, 0xE0);
 	//MPU6050_WriteReg(MPU6050_RA_SMPLRT_DIV, 0x07);
@@ -107,17 +107,36 @@ float MPU6050_Read_Angle(){
 	gui_acc_z = Acc_Z/16384.0f;
 	total_acc = sqrt(pow(gui_acc_x,2) + pow(gui_acc_y,2) + pow(gui_acc_z,2));
 	gui_total_acc = total_acc;
-	gui_angle = ACCEL_XANGLE;
 	return ACCEL_XANGLE;
 }
+int32_t filter_pos = 0;
+float	angle_hist[4] = {0, 0, 0, 0};
 
+float Average_Angle()
+{
+	float sum = 0;
+	uint8_t j;
+	
+	angle_hist[filter_pos] = MPU6050_Read_Angle();
+	filter_pos++;
+	
+	if (filter_pos == 4) 
+		filter_pos = 0;
+	
+	for (j = 0; j < 4; j++)
+		sum = sum + angle_hist[j];
+	
+	gui_angle = sum / 4;
+
+	return sum / 4;
+}
 int32_t GYRO_XOUT_OFFSET = -448;
 int32_t GYRO_YOUT_OFFSET = 64;
 int32_t GYRO_ZOUT_OFFSET = -192;
  
 volatile uint32_t i = 0;
 
-void Get_Gyro_Rates()
+float Get_Gyro_Rates()
 {
 	
 	int16_t Gyro_X;
@@ -132,6 +151,8 @@ void Get_Gyro_Rates()
 	gui_gyro_x = (Gyro_X - GYRO_XOUT_OFFSET) / GYRO_SENSITIVITY;
 	gui_gyro_y = (Gyro_Y - GYRO_YOUT_OFFSET) / GYRO_SENSITIVITY;
 	gui_gyro_z = (Gyro_Z - GYRO_ZOUT_OFFSET) / GYRO_SENSITIVITY;
+	
+	return gui_gyro_z;
 }
 
 

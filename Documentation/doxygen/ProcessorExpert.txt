@@ -34,7 +34,8 @@
 - \subpage TU2
 - \subpage TimerIntLdd1
 - \subpage UART0
-- \subpage EInt1
+- \subpage TU4
+- \subpage AdcLdd1
 
 
 */

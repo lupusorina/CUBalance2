@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-30, 15:47, # CodeGen: 71
+**     Date/Time   : 2015-06-22, 19:40, # CodeGen: 93
 **     Abstract    :
 **
 **     Settings    :
@@ -84,7 +84,7 @@ extern "C" {
 #define CPU_USB_CLK_HZ_CONFIG_0         0UL /* USB clock frequency in clock configuration 0 */
 #define CPU_PLL_FLL_CLK_HZ_CONFIG_0     24000000UL /* PLL/FLL clock frequency in clock configuration 0 */
 #define CPU_MCGIR_CLK_HZ_CONFIG_0       32768UL /* MCG internal reference clock frequency in clock configuration 0 */
-#define CPU_OSCER_CLK_HZ_CONFIG_0       8000000UL /* System OSC external reference clock frequency in clock configuration 0 */
+#define CPU_OSCER_CLK_HZ_CONFIG_0       0UL /* System OSC external reference clock frequency in clock configuration 0 */
 #define CPU_ERCLK32K_CLK_HZ_CONFIG_0    1000UL /* External reference clock 32k frequency in clock configuration 0 */
 #define CPU_MCGFF_CLK_HZ_CONFIG_0       15625UL /* MCG fixed frequency clock */
 
@@ -431,17 +431,6 @@ PE_ISR(Cpu_ivINT_UART2);
 ** ===================================================================
 */
 
-PE_ISR(Cpu_ivINT_ADC0);
-/*
-** ===================================================================
-**     Method      :  Cpu_Cpu_ivINT_ADC0 (component MKL25Z128LK4)
-**
-**     Description :
-**         This ISR services an unused interrupt/exception vector.
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-
 PE_ISR(Cpu_ivINT_CMP0);
 /*
 ** ===================================================================
@@ -589,6 +578,17 @@ PE_ISR(Cpu_ivINT_PORTA);
 /*
 ** ===================================================================
 **     Method      :  Cpu_Cpu_ivINT_PORTA (component MKL25Z128LK4)
+**
+**     Description :
+**         This ISR services an unused interrupt/exception vector.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+
+PE_ISR(Cpu_ivINT_PORTD);
+/*
+** ===================================================================
+**     Method      :  Cpu_Cpu_ivINT_PORTD (component MKL25Z128LK4)
 **
 **     Description :
 **         This ISR services an unused interrupt/exception vector.

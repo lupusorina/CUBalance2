@@ -35,7 +35,11 @@ Sources/MPU6050.o: ../Sources/MPU6050.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_cfg.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_cfggen.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_tsa.h \
- D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/TU4.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/AD1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/math.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cmath \
@@ -139,7 +143,15 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_cfggen.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/freemaster_tsa.h:
 
-D:/Licenta/Electronica/CUBalance/Generated_Code/EInt1.h:
+D:/Licenta/Electronica/CUBalance/Generated_Code/TU4.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/AD1.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/I2C2.h:
 

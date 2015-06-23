@@ -140,8 +140,9 @@ typedef struct {
 void MPU6050_Setup();
 void MPU6050_Setup1();
 float MPU6050_Read_Angle();
-void Get_Gyro_Rates();
+float Get_Gyro_Rates();
 void Calibrate_Gyros();
+float Average_Angle();
 #endif /* MPU6050_H_ */
 
 

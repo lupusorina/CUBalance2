@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.156, Driver 01.10, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-28, 13:56, # CodeGen: 63
+**     Date/Time   : 2015-06-23, 16:19, # CodeGen: 98
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -21,7 +21,7 @@
 **            Counter frequency                            : Auto select
 **          Counter restart                                : On-match
 **            Period device                                : LPTMR0_CMR
-**            Period                                       : 100 Hz
+**            Period                                       : 10 Hz
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_LPTimer
 **              Interrupt priority                         : minimal priority
@@ -93,10 +93,10 @@ extern "C" {
 #define __BWUserType_TU2_TValueType
   typedef uint16_t TU2_TValueType ;    /* Type for data parameters of methods */
 #endif
-#define TU2_CNT_INP_FREQ_U_0 0x003D0900UL /* Counter input frequency in Hz */
-#define TU2_CNT_INP_FREQ_R_0 4000000.0F /* Counter input frequency in Hz */
+#define TU2_CNT_INP_FREQ_U_0 0x8000UL  /* Counter input frequency in Hz */
+#define TU2_CNT_INP_FREQ_R_0 32768.00013421773F /* Counter input frequency in Hz */
 #define TU2_CNT_INP_FREQ_COUNT 0U      /* Count of predefined counter input frequencies */
-#define TU2_PERIOD_TICKS   0x9C40UL    /* Initialization value of period in 'counter ticks' */
+#define TU2_PERIOD_TICKS   0x0CCDUL    /* Initialization value of period in 'counter ticks' */
 #define TU2_NUMBER_OF_CHANNELS 0x00U   /* Count of predefined channels */
 #define TU2_COUNTER_WIDTH  0x10U       /* Counter width in bits  */
 #define TU2_COUNTER_DIR    DIR_UP      /* Direction of counting */

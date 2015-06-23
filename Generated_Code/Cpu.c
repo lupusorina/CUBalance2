@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-30, 15:50, # CodeGen: 72
+**     Date/Time   : 2015-06-22, 19:40, # CodeGen: 93
 **     Abstract    :
 **
 **     Settings    :
@@ -43,7 +43,9 @@
 #include "TU2.h"
 #include "FMSTR1.h"
 #include "UART0.h"
-#include "EInt1.h"
+#include "TU4.h"
+#include "AD1.h"
+#include "AdcLdd1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -466,21 +468,6 @@ PE_ISR(Cpu_ivINT_UART2)
 
 /*
 ** ===================================================================
-**     Method      :  Cpu_Cpu_ivINT_ADC0 (component MKL25Z128LK4)
-**
-**     Description :
-**         This ISR services an unused interrupt/exception vector.
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-PE_ISR(Cpu_ivINT_ADC0)
-{
-  /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
-  PE_DEBUGHALT();
-}
-
-/*
-** ===================================================================
 **     Method      :  Cpu_Cpu_ivINT_CMP0 (component MKL25Z128LK4)
 **
 **     Description :
@@ -689,6 +676,21 @@ PE_ISR(Cpu_ivINT_PORTA)
   PE_DEBUGHALT();
 }
 
+/*
+** ===================================================================
+**     Method      :  Cpu_Cpu_ivINT_PORTD (component MKL25Z128LK4)
+**
+**     Description :
+**         This ISR services an unused interrupt/exception vector.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+PE_ISR(Cpu_ivINT_PORTD)
+{
+  /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
+  PE_DEBUGHALT();
+}
+
 
 /*** !!! Here you can place your own code using property "User data declarations" on the build options tab. !!! ***/
 
@@ -732,8 +734,8 @@ void __init_hardware(void)
   /* Switch to FBE Mode */
   /* MCG_C2: LOCRE0=0,??=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
   MCG_C2 = (MCG_C2_RANGE0(0x02) | MCG_C2_EREFS0_MASK);                                   
-  /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
-  OSC0_CR = OSC_CR_ERCLKEN_MASK;                                   
+  /* OSC0_CR: ERCLKEN=0,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
+  OSC0_CR = 0x00U;                                   
   /* MCG_C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
   MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);                                   
   /* MCG_C4: DMX32=0,DRST_DRS=0 */
@@ -870,8 +872,6 @@ void PE_low_level_init(void)
   NVIC_ISER |= NVIC_ISER_SETENA(0x1000);                                   
   /* NVIC_IPR3: PRI_12=0 */
   NVIC_IPR3 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_12(0xFF));                                   
-  /* GPIOD_PDDR: PDD&=~8 */
-  GPIOD_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x08));                                   
   /* PORTA_PCR20: ISF=0,MUX=7 */
   PORTA_PCR20 = (uint32_t)((PORTA_PCR20 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK
@@ -891,8 +891,8 @@ void PE_low_level_init(void)
   UART0_Init();
   /* ### FreeMaster "FMSTR1" init code ... */
   FMSTR1_Init();
-  /* ### ExtInt_LDD "EInt1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)EInt1_Init(NULL);
+  /* ### ADC "AD1" init code ... */
+  AD1_Init();
   __EI();
 }
   /* Flash configuration field */

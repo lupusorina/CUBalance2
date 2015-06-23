@@ -6,7 +6,7 @@
 **     Component   : Init_TPM
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-18, 20:12, # CodeGen: 44
+**     Date/Time   : 2015-06-22, 15:55, # CodeGen: 92
 **     Abstract    :
 **          This file implements the TPM (TPM0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -18,9 +18,9 @@
 **            Clock gate                                   : Enabled
 **            Clock settings                               : 
 **              Clock source                               : TPM counter clock
-**              Prescaler                                  : divide by 1
-**              Modulo counter                             : 10000
-**              Period                                     : 416.708 us
+**              Prescaler                                  : divide by 32
+**              Modulo counter                             : 6000
+**              Period                                     : 8.001 ms
 **            BDM mode                                     : TPM counter stopped; output pins remain the same
 **            Global time base                             : Disabled
 **            Counter reload on trigger                    : Disabled
@@ -217,24 +217,25 @@ void TPM0_Init(void)
   TPM0_C3V = TPM_CnV_VAL(0x00);                                   
   /* TPM0_C5V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
   TPM0_C5V = TPM_CnV_VAL(0x00);                                   
-  /* TPM0_MOD: MOD=0x2710 */
+  /* TPM0_MOD: MOD=0x1770 */
   TPM0_MOD = (uint32_t)((TPM0_MOD & (uint32_t)~(uint32_t)(
-              TPM_MOD_MOD(0xD8EF)
+              TPM_MOD_MOD(0xE88F)
              )) | (uint32_t)(
-              TPM_MOD_MOD(0x2710)
+              TPM_MOD_MOD(0x1770)
              ));                                  
   /* TPM0_CNT: COUNT=0 */
   TPM0_CNT &= (uint32_t)~(uint32_t)(TPM_CNT_COUNT(0xFFFF));                                   
-  /* TPM0_SC: DMA=0,TOF=0,TOIE=0,CPWMS=0,CMOD=1,PS=0 */
+  /* TPM0_SC: DMA=0,TOF=0,TOIE=0,CPWMS=0,CMOD=1,PS=5 */
   TPM0_SC = (uint32_t)((TPM0_SC & (uint32_t)~(uint32_t)(
              TPM_SC_DMA_MASK |
              TPM_SC_TOF_MASK |
              TPM_SC_TOIE_MASK |
              TPM_SC_CPWMS_MASK |
              TPM_SC_CMOD(0x02) |
-             TPM_SC_PS(0x07)
+             TPM_SC_PS(0x02)
             )) | (uint32_t)(
-             TPM_SC_CMOD(0x01)
+             TPM_SC_CMOD(0x01) |
+             TPM_SC_PS(0x05)
             ));                                  
 }
 

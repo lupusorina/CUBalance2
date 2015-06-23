@@ -19,7 +19,7 @@ by the component.
     0x01000000
  </td><td>SIM_SCGC6 register, peripheral TPM0.</td></tr>
 <tr><td>0x40038000</td><td>TPM0_SC</td><td>
-    0x00000008
+    0x0000000D
  </td><td>TPM0_SC register, peripheral TPM0.</td></tr>
 <tr><td>0x4003800C</td><td>TPM0_C0SC</td><td>
     0x00000080
@@ -169,7 +169,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000008</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000000D</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>8</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
@@ -177,7 +177,7 @@ registers of the peripheral(s) configured by the component.
 <tr><td>6</td><td>TOIE</td><td>0x00</td><td>Timer Overflow Interrupt Enable</td>
 <tr><td>5</td><td>CPWMS</td><td>0x00</td><td>Center-aligned PWM Select</td>
 <tr><td>3 - 4</td><td>CMOD</td><td>0x00</td><td>Clock Mode Selection</td>
-<tr><td>0 - 2</td><td>PS</td><td>0x00</td><td>Prescale Factor Selection</td>
+<tr><td>0 - 2</td><td>PS</td><td>0x04</td><td>Prescale Factor Selection</td>
 </tr></table>
 <div class="reghdr1">TPM0_C0SC</div>
 <div class="regdiag">
@@ -828,9 +828,9 @@ registers of the peripheral(s) configured by the component.
 **            Clock gate                                   : Enabled
 **            Clock settings                               : 
 **              Clock source                               : TPM counter clock
-**              Prescaler                                  : divide by 1
-**              Modulo counter                             : 10000
-**              Period                                     : 416.708 us
+**              Prescaler                                  : divide by 32
+**              Modulo counter                             : 6000
+**              Period                                     : 8.001 ms
 **            BDM mode                                     : TPM counter stopped; output pins remain the same
 **            Global time base                             : Disabled
 **            Counter reload on trigger                    : Disabled

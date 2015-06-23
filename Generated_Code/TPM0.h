@@ -6,7 +6,7 @@
 **     Component   : Init_TPM
 **     Version     : Component 01.000, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-18, 20:12, # CodeGen: 44
+**     Date/Time   : 2015-06-22, 15:55, # CodeGen: 92
 **     Abstract    :
 **          This file implements the TPM (TPM0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -18,9 +18,9 @@
 **            Clock gate                                   : Enabled
 **            Clock settings                               : 
 **              Clock source                               : TPM counter clock
-**              Prescaler                                  : divide by 1
-**              Modulo counter                             : 10000
-**              Period                                     : 416.708 us
+**              Prescaler                                  : divide by 32
+**              Modulo counter                             : 6000
+**              Period                                     : 8.001 ms
 **            BDM mode                                     : TPM counter stopped; output pins remain the same
 **            Global time base                             : Disabled
 **            Counter reload on trigger                    : Disabled

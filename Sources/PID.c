@@ -10,21 +10,25 @@
 #include "GPIO1.h"
 #include "globals.h"
 typedef struct{
-	float kp;
-	float kd;
-	float ki;
-	float integral_acc;
-	float err_old;
-}Pid_params;
+	float kp;  																//proportional  coefficient
+	float kd;																//differential coefficient	
+	float ki;																//integral coefficient		
+	float integral_acc;														//acumulator to calculating the integral
+	float err_old;															//reminder for calculating the differential										
+}Pid_params;		
 
 float error_calculation()
 {
+	float k_angle = 0;														// a proportional coeficient to combine acc and gyro data    
 	float  ref_angle = 0.0f;
-	
-	return ref_angle - MPU6050_Read_Angle();
+	k_angle = gui_k_angle; 													// assigned value for GUI  				
+	gui_computed_angle  = Average_Angle() - k_angle * Get_Gyro_Rates(); 	
+	if (gui_computed_angle < 3 && gui_computed_angle >=-3) 
+		gui_computed_angle = -0.1;
+	return ref_angle - gui_computed_angle;
 }
 
-float pid(float err, Pid_params *param)
+float pid(float err, Pid_params *param)										// PID algorithm
 {
 	float err_dif;
 	float output;
@@ -39,13 +43,13 @@ float pid(float err, Pid_params *param)
 	return output;
 }
 
-void set_motor_speed(float speed)
+void set_motor_speed(float speed)											//Algorithm to control the motor speed and direction
 {
 	uint32_t duty_cycle;
 	
 	//TPM0_C5V = (uint32_t) speed;
 	
-	if(speed > 0){
+	if(speed >= 0){															
 		duty_cycle = (uint32_t) speed;
 //		
 		TPM0_C5V = duty_cycle;
@@ -56,32 +60,29 @@ void set_motor_speed(float speed)
 		GPIO1_SetFieldValue(GPIO1_DeviceData, Motor_Direction, 1);
 		
 		TPM0_C5V = duty_cycle;
-}
-	// to do semnul pentru directie
-	//PwmLdd1_SetRatio16(PwmLdd1_DeviceData, (uint16_t)speed);
+	}
+
 }
 
-void stabilize()
+Pid_params param = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+
+void stabilize()														// main
 {
 	float pid_output; 
-	//float pid_to_speed = 10.0f;
-	float error_calc;
+	float error_calc = error_calculation();
+	uint16_t motor_speed = 0;
 	
-	error_calc  = error_calculation();
-	Pid_params param = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-	
-	param.kd = KD;
+	//AD1_Measure(TRUE);
+	//AD1_GetValue16(&motor_speed);
+	//gui_motor_speed = motor_speed - 32657;
+		
+	param.kd = KD;														// parameters controlled by GUI 
 	param.ki = KI;
-	param.kp = KP;
-	
+	param.kp = KP;	
 	
 	pid_output = pid(error_calc, &param);
 	
 	gui_pid_output = pid_output;
 	set_motor_speed(pid_output);
-	
-	//printf("_____________\n");
-	//Print Angle
-	//printf("A %f \n ", error_calc);
-	//printf("Motor Speed %f \n ", pid_output * pid_to_speed);
+
 }

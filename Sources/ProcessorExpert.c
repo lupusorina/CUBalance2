@@ -37,7 +37,9 @@
 #include "TU2.h"
 #include "FMSTR1.h"
 #include "UART0.h"
-#include "EInt1.h"
+#include "TU4.h"
+#include "AD1.h"
+#include "AdcLdd1.h"
 #include "TPM0.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
@@ -64,6 +66,10 @@ float KI = 0;
 float gui_gyro_x = 0;
 float gui_gyro_y = 0;
 float gui_gyro_z = 0;
+float gui_k_angle = 0;
+float gui_computed_angle = 0;
+uint16_t gui_motor_speed = 0;
+int16_t gui_servo_position = 1;
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
@@ -73,6 +79,7 @@ int main(void)
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
+  //AD1_Calibrate(TRUE);
   MPU6050_Setup();
   //Calibrate_Gyros();
   /* Write your code here */

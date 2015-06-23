@@ -6,7 +6,7 @@
 **     Component   : I2C_LDD
 **     Version     : Component 01.014, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-29, 17:20, # CodeGen: 32
+**     Date/Time   : 2015-06-22, 14:46, # CodeGen: 88
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based

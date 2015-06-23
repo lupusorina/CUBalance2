@@ -19,9 +19,12 @@ extern float KP;
 extern float KD;
 extern float KI;
 extern float gui_pid_output;
-
+extern float gui_k_angle;
+extern float gui_computed_angle;
 extern float gui_gyro_x;
 extern float gui_gyro_y;
 extern float gui_gyro_z;
+extern int16_t gui_motor_speed;
+extern uint16_t gui_servo_position;
 //extern int16_t Acc_X, Acc_Y, Acc_Z;
 #endif /* GLOBALS_H_ */

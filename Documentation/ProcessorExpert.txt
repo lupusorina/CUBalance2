@@ -75,9 +75,25 @@ Module "FMSTR1"    (component FreeMaster)
                 are any data to be returned back to the PC.  This method is enabled only if the Application command property is 
                 enabled.
 
-Module "EInt1"     (component ExtInt_LDD)
-   - EInt1_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
-                called automatically as a part of the application initialization code.
+Module "TU4"       (component TimerUnit_LDD)
+   - TU4_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU4_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
+                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
+   - TU4_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
+                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
+
+Module "AD1"       (component ADC)
+   - AD1_Measure -This method performs one measurement on all channels that are set in the component inspector. (Note: If the 
+                <number of conversions> is more than one the conversion of A/D channels is performed specified number of times.)
+   - AD1_GetValue16 -This method returns the last measured values of all channels justified to the left. Compared with 
+                <GetValue> method this method returns more accurate result if the <number of conversions> is greater than 1 and 
+                <AD resolution> is less than 16 bits. In addition, the user code dependency on <AD resolution> is eliminated.
+   - AD1_Calibrate -This method starts self calibration process. Calibration is typically used to remove the effects of the 
+                gain and offset from a specific reading.
 
 Module "Cpu"       (component MKL25Z128LK4)
 
