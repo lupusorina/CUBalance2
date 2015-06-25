@@ -44,6 +44,7 @@
 #include "TU4.h"
 #include "AD1.h"
 #include "AdcLdd1.h"
+#include "GPIO2.h"
 #include "TPM0.h"
 #include "MPU6050.h"
 #ifdef __cplusplus

@@ -128,12 +128,19 @@ void I2C2_OnMasterBlockReceived(LDD_TUserData *UserDataPtr)
 */
 
 //uint16_t acc_x, acc_y, acc_z;
+uint8_t global_val;
 void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
-	Get_Gyro_Rates();
-	stabilize();
+	
+	if (global_val == global_threshold){
+		global_val = 0;
+		Get_Gyro_Rates();
+		stabilize();
 	//PWM2_SetRatio16(PWM2_DeviceData, gui_servo_position);
+	}else 
+		global_val++;
+	
 	FMSTR1_Poll();
 	FMSTR1_Recorder();
 }

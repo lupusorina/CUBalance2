@@ -45,6 +45,7 @@ Generated_Code/I2C2.o: ../Generated_Code/I2C2.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/PE_LDD.h \
@@ -55,6 +56,7 @@ Generated_Code/I2C2.o: ../Generated_Code/I2C2.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TU4.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/AD1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h \
  ../Generated_Code/I2C2.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/I2C_PDD.h \
  ../Generated_Code/IO_Map.h
@@ -151,6 +153,8 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h:
 
+D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h:
+
 D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
 
 D:/Licenta/Electronica/CUBalance/Sources/MPU6050.h:
@@ -170,6 +174,8 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/FMSTR1.h:
 D:/Licenta/Electronica/CUBalance/Generated_Code/TU4.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/AD1.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h:
 
 ../Generated_Code/I2C2.h:
 

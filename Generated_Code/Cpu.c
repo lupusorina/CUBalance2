@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-22, 19:40, # CodeGen: 93
+**     Date/Time   : 2015-06-24, 19:46, # CodeGen: 111
 **     Abstract    :
 **
 **     Settings    :
@@ -46,6 +46,7 @@
 #include "TU4.h"
 #include "AD1.h"
 #include "AdcLdd1.h"
+#include "GPIO2.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -708,10 +709,11 @@ void __init_hardware(void)
   /* SIM_COPC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COPT=0,COPCLKS=0,COPW=0 */
   SIM_COPC = SIM_COPC_COPT(0x00);                                   
   /* System clock initialization */
-  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTA=1 */
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
                SIM_SCGC5_PORTD_MASK |
                SIM_SCGC5_PORTC_MASK |
+               SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   /* SIM_SCGC5: LPTMR=1 */
   SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK;                                   
@@ -893,6 +895,8 @@ void PE_low_level_init(void)
   FMSTR1_Init();
   /* ### ADC "AD1" init code ... */
   AD1_Init();
+  /* ### GPIO_LDD "GPIO2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)GPIO2_Init(NULL);
   __EI();
 }
   /* Flash configuration field */

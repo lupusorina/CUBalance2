@@ -107,7 +107,7 @@ float MPU6050_Read_Angle(){
 	gui_acc_z = Acc_Z/16384.0f;
 	total_acc = sqrt(pow(gui_acc_x,2) + pow(gui_acc_y,2) + pow(gui_acc_z,2));
 	gui_total_acc = total_acc;
-	return ACCEL_XANGLE;
+	return ACCEL_YANGLE;
 }
 int32_t filter_pos = 0;
 float	angle_hist[4] = {0, 0, 0, 0};

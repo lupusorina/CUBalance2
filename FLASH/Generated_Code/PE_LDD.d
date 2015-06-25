@@ -26,7 +26,8 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/freemaster_tsa.h ../Generated_Code/TU4.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  ../Generated_Code/AD1.h ../Generated_Code/AdcLdd1.h \
- C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
+ ../Generated_Code/GPIO2.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -105,3 +106,5 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h:
 ../Generated_Code/AdcLdd1.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
+
+../Generated_Code/GPIO2.h:

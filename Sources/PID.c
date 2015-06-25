@@ -8,6 +8,7 @@
 #include "stdio.h"
 #include "TPM0.h"
 #include "GPIO1.h"
+#include "GPIO2.h"
 #include "globals.h"
 typedef struct{
 	float kp;  																//proportional  coefficient
@@ -23,9 +24,8 @@ float error_calculation()
 	float  ref_angle = 0.0f;
 	k_angle = gui_k_angle; 													// assigned value for GUI  				
 	gui_computed_angle  = Average_Angle() - k_angle * Get_Gyro_Rates(); 	
-	if (gui_computed_angle < 3 && gui_computed_angle >=-3) 
-		gui_computed_angle = -0.1;
-	return ref_angle - gui_computed_angle;
+	
+	return ref_angle - gui_computed_angle - 1.027;
 }
 
 float pid(float err, Pid_params *param)										// PID algorithm
@@ -34,7 +34,7 @@ float pid(float err, Pid_params *param)										// PID algorithm
 	float output;
 	
 	param->integral_acc = param->integral_acc + err;
-	err_dif = param->err_old - err;
+	err_dif = err - param->err_old;
 	
 	output = param->kp * err + param->ki * param->integral_acc + param->kd * err_dif;
 	
@@ -50,18 +50,15 @@ void set_motor_speed(float speed)											//Algorithm to control the motor spe
 	//TPM0_C5V = (uint32_t) speed;
 	
 	if(speed >= 0){															
-		duty_cycle = (uint32_t) speed;
-//		
-		TPM0_C5V = duty_cycle;
-		GPIO1_SetFieldValue(GPIO1_DeviceData, Motor_Direction, 0);
-	//	GPIO1_SetFieldBits(GPIO1_DeviceData, Motor_Direction, 0);
-	} else {
-		duty_cycle = (uint32_t) (-speed);
-		GPIO1_SetFieldValue(GPIO1_DeviceData, Motor_Direction, 1);
-		
-		TPM0_C5V = duty_cycle;
-	}
-
+			duty_cycle = (uint32_t) speed;
+			TPM0_C5V = duty_cycle;
+			GPIO1_SetFieldValue(GPIO1_DeviceData, Motor_Direction, 0);
+			//	GPIO1_SetFieldBits(GPIO1_DeviceData, Motor_Direction, 0);
+		} else {
+			duty_cycle = (uint32_t) (-speed);
+			GPIO1_SetFieldValue(GPIO1_DeviceData, Motor_Direction, 1);
+			TPM0_C5V = duty_cycle;
+		}
 }
 
 Pid_params param = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
@@ -72,17 +69,22 @@ void stabilize()														// main
 	float error_calc = error_calculation();
 	uint16_t motor_speed = 0;
 	
-	//AD1_Measure(TRUE);
-	//AD1_GetValue16(&motor_speed);
-	//gui_motor_speed = motor_speed - 32657;
+	AD1_Measure(TRUE);
+	AD1_GetValue16(&motor_speed);
+	gui_motor_speed = 0.18*(motor_speed - 32657) - 36;
 		
 	param.kd = KD;														// parameters controlled by GUI 
 	param.ki = KI;
 	param.kp = KP;	
 	
-	pid_output = pid(error_calc, &param);
-	
+	pid_output = pid(error_calc, &param);	
 	gui_pid_output = pid_output;
-	set_motor_speed(pid_output);
+	
+	if ((gui_computed_angle < treshold_angle) && (gui_computed_angle >(-treshold_angle))){ 
+			GPIO2_SetFieldValue(GPIO2_DeviceData,Motor_Enable,0);
+	} else {
+			GPIO2_SetFieldValue(GPIO2_DeviceData,Motor_Enable,1);
+			set_motor_speed(pid_output);
+	}
 
 }

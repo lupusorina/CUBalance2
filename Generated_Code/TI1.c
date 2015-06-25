@@ -6,7 +6,7 @@
 **     Component   : TimerInt
 **     Version     : Component 02.161, Driver 01.02, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-23, 16:19, # CodeGen: 98
+**     Date/Time   : 2015-06-23, 19:53, # CodeGen: 105
 **     Abstract    :
 **         This component "TimerInt" implements a periodic interrupt.
 **         When the component and its events are enabled, the "OnInterrupt"
@@ -25,10 +25,10 @@
 **           Initial period/frequency
 **             Xtal ticks              : ---
 **             microseconds            : ---
-**             milliseconds            : ---
+**             milliseconds            : 10
 **             seconds                 : ---
 **             seconds (real)          : 10
-**             Hz                      : 10
+**             Hz                      : ---
 **             kHz                     : ---
 **             MHz                     : ---
 **

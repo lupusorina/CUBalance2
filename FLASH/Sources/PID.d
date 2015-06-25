@@ -40,6 +40,7 @@ Sources/PID.o: ../Sources/PID.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/AD1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstddef \
@@ -56,6 +57,7 @@ Sources/PID.o: ../Sources/PID.c \
  C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
+ D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h \
  ../Sources/globals.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
@@ -140,6 +142,8 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/AdcLdd1.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:
 
+D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h:
+
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdio.h:
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdio:
@@ -171,5 +175,7 @@ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM
 D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h:
 
 D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h:
+
+D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h:
 
 ../Sources/globals.h:

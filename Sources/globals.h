@@ -26,5 +26,7 @@ extern float gui_gyro_y;
 extern float gui_gyro_z;
 extern int16_t gui_motor_speed;
 extern uint16_t gui_servo_position;
+extern uint16_t global_threshold;
+extern float treshold_angle;
 //extern int16_t Acc_X, Acc_Y, Acc_Z;
 #endif /* GLOBALS_H_ */

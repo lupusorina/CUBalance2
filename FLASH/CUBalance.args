@@ -18,6 +18,7 @@
 "./Generated_Code/TI1.o"
 "./Generated_Code/PE_LDD.o"
 "./Generated_Code/I2C2.o"
+"./Generated_Code/GPIO2.o"
 "./Generated_Code/GPIO1.o"
 "./Generated_Code/FMSTR1.o"
 "./Generated_Code/Cpu.o"

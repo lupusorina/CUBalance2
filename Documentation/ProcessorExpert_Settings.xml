@@ -917,7 +917,7 @@ PE_DEBUGHALT();
         <Interrupt v="INT_LPTimer" />
         <Interrupt_priority v="minimal priority" />
       </boolgroup>
-      <Interrupt_period v="10 Hz" />
+      <Interrupt_period v="10 ms" />
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -940,7 +940,7 @@ PE_DEBUGHALT();
               <Interrupt v="INT_LPTimer" />
               <Interrupt_priority v="minimal priority" />
             </boolgroup>
-            <Interrupt_period v="10 Hz" />
+            <Interrupt_period v="10 ms" />
             <group name="Initialization">
               <Enabled_in_init__code v="yes" />
               <list name="Auto Initialization" v="1">
@@ -1034,7 +1034,7 @@ PE_DEBUGHALT();
       </enumgroup>
       <enumgroup name="Counter restart" v="On-match">
         <Period_device v="LPTMR0_CMR" />
-        <Period v="10 Hz" />
+        <Period v="10 ms" />
         <boolgroup name="Interrupt" v="Enabled">
           <Interrupt v="INT_LPTimer" />
           <Interrupt_priority v="minimal priority" />
@@ -1843,6 +1843,68 @@ PE_DEBUGHALT();
         <Event_procedure_name v="AD1_OnCalibrationEnd" />
         <Priority v="same as interrupt" />
       </event>
+    </Events>
+  </Bean>
+  <Bean name="GPIO2" type="GPIO_LDD">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="GPIO2" />
+      <Port v="PTB" />
+      <Port_width v="32 bits" />
+      <Mask_of_allocated_pins v="256" />
+      <boolgroup name="Interrupt service/event" v="Disabled" />
+      <list name="Bit fields" v="1">
+        <group name="Bit field">
+          <Field_name v="Motor_Enable" />
+          <list name="Pins" v="1">
+            <group name="Pin">
+              <Pin v="PTB8/EXTRG_IN" />
+              <Pin_signal v="" />
+              <boolgroup name="Initial pin direction" v="Output">
+                <Initial_output_state v="0" />
+              </boolgroup>
+              <Initial_pin_event v="Disabled" />
+            </group>
+          </list>
+        </group>
+      </list>
+      <group name="Initialization">
+        <list name="Auto Initialization" v="1">
+          <Auto_initialization v="yes" />
+        </list>
+        <group name="Event mask">
+          <OnPortEvent v="Disabled" />
+        </group>
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+      <Deinit v="don&amp;apos;t generate code" />
+      <SetEventMask v="don&amp;apos;t generate code" />
+      <GetEventMask v="don&amp;apos;t generate code" />
+      <SetPortEventCondition v="don&amp;apos;t generate code" />
+      <GetPortEventStatus v="don&amp;apos;t generate code" />
+      <SetPortValue v="don&amp;apos;t generate code" />
+      <GetPortValue v="don&amp;apos;t generate code" />
+      <ClearPortBits v="don&amp;apos;t generate code" />
+      <SetPortBits v="don&amp;apos;t generate code" />
+      <TogglePortBits v="don&amp;apos;t generate code" />
+      <SetPortInputDirection v="don&amp;apos;t generate code" />
+      <SetPortOutputDirection v="don&amp;apos;t generate code" />
+      <SetFieldValue v="generate code" />
+      <GetFieldValue v="generate code" />
+      <ClearFieldBits v="generate code" />
+      <SetFieldBits v="generate code" />
+      <ToggleFieldBits v="generate code" />
+      <SetFieldInputDirection v="don&amp;apos;t generate code" />
+      <SetFieldOutputDirection v="don&amp;apos;t generate code" />
+      <SetOperationMode v="don&amp;apos;t generate code" />
+      <GetDriverState v="don&amp;apos;t generate code" />
+      <ConnectPin v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+      <event name="OnPortEvent" v="don&amp;apos;t generate code" />
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>

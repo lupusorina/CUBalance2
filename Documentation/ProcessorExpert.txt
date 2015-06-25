@@ -95,6 +95,15 @@ Module "AD1"       (component ADC)
    - AD1_Calibrate -This method starts self calibration process. Calibration is typically used to remove the effects of the 
                 gain and offset from a specific reading.
 
+Module "GPIO2"     (component GPIO_LDD)
+   - GPIO2_Init -This method initializes the associated peripheral(s) and the component internal variables. The method is 
+                called automatically as a part of the application initialization code.
+   - GPIO2_SetFieldValue -This method sets the output data value of the specified bit field.
+   - GPIO2_GetFieldValue -This method returns the current input data of the specified field.
+   - GPIO2_ClearFieldBits -This method drives the specified bits of the specified bit field to the inactive level.
+   - GPIO2_SetFieldBits -This method drives the specified bits of the specified bit field to the active level.
+   - GPIO2_ToggleFieldBits -This method inverts the specified bits of the specified bit field to other level.
+
 Module "Cpu"       (component MKL25Z128LK4)
 
 ===================================================================================

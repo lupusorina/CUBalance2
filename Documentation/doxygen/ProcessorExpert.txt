@@ -36,6 +36,7 @@
 - \subpage UART0
 - \subpage TU4
 - \subpage AdcLdd1
+- \subpage GPIO2
 
 
 */

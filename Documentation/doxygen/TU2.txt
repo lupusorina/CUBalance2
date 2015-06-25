@@ -21,7 +21,7 @@ by the component.
     0x000000C1
  </td><td>LPTMR0_CSR register, peripheral TU2.</td></tr>
 <tr><td>0x40040008</td><td>LPTMR0_CMR</td><td>
-    0x00000CCC
+    0x00000147
  </td><td>LPTMR0_CMR register, peripheral TU2.</td></tr>
 <tr><td>0x40040004</td><td>LPTMR0_PSR</td><td>
     0x00000004
@@ -195,7 +195,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40040008</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000CCC</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000147</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 15</td><td>COMPARE</td><td>0x00</td><td>Compare Value</td>
@@ -353,7 +353,7 @@ registers of the peripheral(s) configured by the component.
 **            Counter frequency                            : Auto select
 **          Counter restart                                : On-match
 **            Period device                                : LPTMR0_CMR
-**            Period                                       : 10 Hz
+**            Period                                       : 10 ms
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_LPTimer
 **              Interrupt priority                         : minimal priority

@@ -40,6 +40,7 @@
 #include "TU4.h"
 #include "AD1.h"
 #include "AdcLdd1.h"
+#include "GPIO2.h"
 #include "TPM0.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
@@ -70,6 +71,8 @@ float gui_k_angle = 0;
 float gui_computed_angle = 0;
 uint16_t gui_motor_speed = 0;
 int16_t gui_servo_position = 1;
+uint16_t global_threshold = 0;
+float treshold_angle = 2;
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
