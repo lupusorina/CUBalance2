@@ -28,5 +28,8 @@ extern int16_t gui_motor_speed;
 extern uint16_t gui_servo_position;
 extern uint16_t global_threshold;
 extern float treshold_angle;
+extern float gui_vel;
+extern float gui_old_error;
+extern float gui_manual_velocity;
 //extern int16_t Acc_X, Acc_Y, Acc_Z;
 #endif /* GLOBALS_H_ */
