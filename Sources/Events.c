@@ -133,14 +133,11 @@ void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
 	
-	if (global_val == global_threshold){
-		global_val = 0;
-		Get_Gyro_Rates();
-		stabilize();
-	//PWM2_SetRatio16(PWM2_DeviceData, gui_servo_position);
-	}else 
-		global_val++;
+
+	//Get_Gyro_Rates();
+	stabilize();
 	
+	//PWM2_SetRatio16(PWM2_DeviceData, gui_servo_position);
 	FMSTR1_Poll();
 	FMSTR1_Recorder();
 }

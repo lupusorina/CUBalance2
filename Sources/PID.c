@@ -26,10 +26,14 @@ float error_calculation()
 	float  ref_angle = 0.0f;
 	k_angle = gui_k_angle; 													// assigned value for GUI  				
 	gui_computed_angle  = Average_Angle() - k_angle * Get_Gyro_Rates(); 	
-
 	return ref_angle - gui_computed_angle - 1.027 ;
+}
 
-		
+float filter_angle()
+{
+	float angle = MPU6050_Read_Angle();
+	
+	return (0.9*(angle + Get_Gyro_Rates()*(1/100)) - 0.1*gui_total_acc);
 }
 
 float pid(float err, Pid_params *param)										// PID algorithm
@@ -67,43 +71,79 @@ void set_motor_speed(float speed)											//Algorithm to control the motor spe
 }
 
 Pid_params param = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+int32_t filter_pos_motor = 0;
+float	motor_hist[4] = {0, 0, 0, 0};
+
+float Average_Motor_Speed()
+{
+	float sum = 0;
+	uint8_t j;
+	uint16_t motor_speed = 0;
+	float computed_speed = 0;
+	
+	AD1_Measure(TRUE);
+	AD1_GetValue16(&motor_speed);
+	computed_speed = 0.18*(motor_speed - 32657) - 36;
+		
+	motor_hist[filter_pos_motor] = computed_speed;
+	filter_pos_motor++;
+	
+	if (filter_pos_motor == 4) 
+		filter_pos_motor = 0;
+	
+	for (j = 0; j < 4; j++)
+		sum = sum + motor_hist[j];
+	return sum / 4;
+}
+
+int32_t filter_pos_gyro = 0;
+float	gyro_hist[4] = {0, 0, 0, 0};
+
+float Average_Gyro()
+{
+	float sum = 0;
+	uint8_t j;
+	
+	gyro_hist[filter_pos_gyro] = Get_Gyro_Rates();
+	filter_pos_gyro++;
+	
+	if (filter_pos_gyro == 4) 
+		filter_pos_gyro = 0;
+	
+	for (j = 0; j < 4; j++)
+		sum = sum + gyro_hist[j];
+	return sum / 4;
+}
+
+
 
 void stabilize()														// main
 {
-//	float pid_output; 
-//	float error_calc = error_calculation();
-//	
-////	float tacc = fabs(gui_total_acc);
-////	if (tacc < 0.8 || tacc > 1.2)
-////		return;
-//	
-	uint16_t motor_speed = 0;
-//	static float vel = 0.0f;
-//	
-	AD1_Measure(TRUE);
-	AD1_GetValue16(&motor_speed);
-	gui_motor_speed = 0.18*(motor_speed - 32657) - 36;
-//	
-////	if (fabs(vel) > 3000) {
-////		vel = 0;
-////		set_motor_speed(vel);
-////		return;
-////	}
-//		
-//	param.kd = KD;														// parameters controlled by GUI 
-//	param.ki = KI;
-//	param.kp = KP;	
-//	
-//	pid_output = pid(error_calc, &param);	
-//	gui_pid_output = pid_output;
-//	
-//	gui_vel = vel;
-//	//if ((gui_computed_angle < treshold_angle) && (gui_computed_angle >(-treshold_angle))){ 
-//	//		GPIO2_SetFieldValue(GPIO2_DeviceData,Motor_Enable,0);
-//	//} else {
-//	//		GPIO2_SetFieldValue(GPIO2_DeviceData,Motor_Enable,1);
-//	vel += pid_output * (global_threshold + 1) / 100;
-	set_motor_speed(gui_manual_velocity);
-	//}
+	
+	//uint16_t motor_speed = 0;
+	float vel = 0.0f;
+	
+	
+	// set LQR coefficients
+	param.kd = KD;														// parameters controlled by GUI 
+	param.ki = KI;
+	param.kp = KP;	
+	
+
+	gui_motor_speed = Average_Motor_Speed();
+	gui_gyro_z = Average_Gyro();
+	
+	gui_filter_angle = 0.98*(gui_filter_angle + gui_gyro_z/100) + 0.02 * MPU6050_Read_Angle();
+	
+	vel = param.kp * gui_filter_angle + param.kd * gui_gyro_z + param.ki * gui_motor_speed; 
+	gui_vel = vel;
+	set_motor_speed(vel);
+	
+	//if ((gui_computed_angle < treshold_angle) && (gui_computed_angle >(-treshold_angle)))
+	//	set_motor_speed(600);	
+	//vel += pid_output * (global_threshold + 1) / 100;
+	//if (vel > 3000) vel = 3000;
+	//set_motor_speed(vel);
+
 
 }

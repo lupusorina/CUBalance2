@@ -69,13 +69,14 @@ float gui_gyro_y = 0;
 float gui_gyro_z = 0;
 float gui_k_angle = 0;
 float gui_computed_angle = 0;
-uint16_t gui_motor_speed = 0;
+float gui_motor_speed = 0;
 int16_t gui_servo_position = 1;
 uint16_t global_threshold = 0;
 float treshold_angle = 2;
 float gui_vel = 0;
 float gui_old_error = 0;
 float gui_manual_velocity = 0;
+float gui_filter_angle = 0;
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */

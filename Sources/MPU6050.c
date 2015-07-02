@@ -148,9 +148,9 @@ float Get_Gyro_Rates()
 	Gyro_Y = MPU6050_Get_Data (MPU6050_RA_GYRO_YOUT_H, MPU6050_RA_GYRO_YOUT_L);
 	Gyro_Z = MPU6050_Get_Data (MPU6050_RA_GYRO_ZOUT_H, MPU6050_RA_GYRO_ZOUT_L);
 		
-	gui_gyro_x = (Gyro_X - GYRO_XOUT_OFFSET) / GYRO_SENSITIVITY;
-	gui_gyro_y = (Gyro_Y - GYRO_YOUT_OFFSET) / GYRO_SENSITIVITY;
-	gui_gyro_z = (Gyro_Z - GYRO_ZOUT_OFFSET) / GYRO_SENSITIVITY;
+	//gui_gyro_x = (Gyro_X - GYRO_XOUT_OFFSET) / GYRO_SENSITIVITY;
+	//gui_gyro_y = (Gyro_Y - GYRO_YOUT_OFFSET) / GYRO_SENSITIVITY;
+	gui_gyro_z = (Gyro_Z  - GYRO_ZOUT_OFFSET) * GYRO_SENSITIVITY;
 	
 	return gui_gyro_z;
 }
