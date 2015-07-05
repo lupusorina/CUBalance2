@@ -69,7 +69,10 @@ Sources/PID.o: ../Sources/PID.c \
  D:/Licenta/Electronica/CUBalance/Generated_Code/TPM0.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h \
  D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h \
- ../Sources/globals.h
+ ../Sources/globals.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdlib.h \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdlib \
+ C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/div_t.h
 
 C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -212,3 +215,9 @@ D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO1.h:
 D:/Licenta/Electronica/CUBalance/Generated_Code/GPIO2.h:
 
 ../Sources/globals.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdlib.h:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdlib:
+
+C:/Freescale/CW\ MCU\ v10.4/MCU/ARM_GCC_Support/ewl/EWL_C/include/div_t.h:

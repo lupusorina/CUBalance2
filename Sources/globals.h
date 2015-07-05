@@ -19,7 +19,7 @@ extern float KP;
 extern float KD;
 extern float KI;
 extern float gui_pid_output;
-extern float gui_k_angle;
+extern float gui_angle_offset;
 extern float gui_computed_angle;
 extern float gui_gyro_x;
 extern float gui_gyro_y;

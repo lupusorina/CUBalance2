@@ -12,6 +12,8 @@
 #include "GPIO1.h"
 #include "GPIO2.h"
 #include "globals.h"
+#include "math.h"
+#include "stdlib.h"
 typedef struct{
 	float kp;  																//proportional  coefficient
 	float kd;																//differential coefficient	
@@ -20,14 +22,8 @@ typedef struct{
 	float err_old;															//reminder for calculating the differential										
 }Pid_params;		
 
-float error_calculation()
-{
-	float k_angle = 0;														// a proportional coeficient to combine acc and gyro data    
-	float  ref_angle = 0.0f;
-	k_angle = gui_k_angle; 													// assigned value for GUI  				
-	gui_computed_angle  = Average_Angle() - k_angle * Get_Gyro_Rates(); 	
-	return ref_angle - gui_computed_angle - 1.027 ;
-}
+#define CATCH_ANGLE 29
+
 
 float filter_angle()
 {
@@ -122,8 +118,8 @@ void stabilize()														// main
 	
 	//uint16_t motor_speed = 0;
 	float vel = 0.0f;
-	
-	
+	uint16_t i = 0;
+	uint16_t motor_speed = 0;
 	// set LQR coefficients
 	param.kd = KD;														// parameters controlled by GUI 
 	param.ki = KI;
@@ -131,14 +127,16 @@ void stabilize()														// main
 	
 
 	gui_motor_speed = Average_Motor_Speed();
-	gui_gyro_z = Average_Gyro();
+	gui_gyro_z = Average_Gyro() + 0.488281;
+	gui_computed_angle = MPU6050_Read_Angle() + gui_angle_offset;
 	
-	gui_filter_angle = 0.98*(gui_filter_angle + gui_gyro_z/100) + 0.02 * MPU6050_Read_Angle();
+	gui_filter_angle = 0.9*(gui_filter_angle + gui_gyro_z/100) + 0.1 * gui_computed_angle;
 	
+
 	vel = param.kp * gui_filter_angle + param.kd * gui_gyro_z + param.ki * gui_motor_speed; 
 	gui_vel = vel;
 	set_motor_speed(vel);
-	
+//}
 	//if ((gui_computed_angle < treshold_angle) && (gui_computed_angle >(-treshold_angle)))
 	//	set_motor_speed(600);	
 	//vel += pid_output * (global_threshold + 1) / 100;
